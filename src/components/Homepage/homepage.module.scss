@@ -1,0 +1,58 @@
+@import "../../styles/sass/abstracts/variables";
+@import "../../styles/sass/components/globals";
+@import "../../styles/sass/components/mixins";
+
+.heroSection {
+    // height: 80vh;
+    
+
+    .heroContent {
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    @extend %flex;
+    padding: 5rem 0;
+    
+    .heroTextContent{
+        width: 40%;
+
+
+        .contentHeading {
+            color: $faded-text;
+            letter-spacing: .5rem;
+            font-size: $textSmall;
+            margin-bottom: 2.4rem;
+        }
+
+        .mainText {
+            color: $white;
+            font-size: $heroText;
+            line-height: 1.05;
+            margin-bottom: 2.4rem;
+        }
+
+        .subText{
+            color: $white-lighter;
+            font-size: toRem(15);
+            font-weight: $fontMedium;
+            line-height: 1.5;
+            margin-bottom: 2.4rem;
+        }
+
+        .productBtn{
+            display: inline-block;
+            background-color: $primary;
+            padding: 15px 29px;
+            color: $white;
+            border: 0.1rem solid transparent;
+            font-size: toRem(13);
+            letter-spacing: .1rem;
+            font-weight: $fontBold;
+            transition: all .2s ease;
+        }
+
+    }
+
+  
+    }
+}

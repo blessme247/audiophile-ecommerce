@@ -1,0 +1,10 @@
+@import "./variables";
+
+%btn {
+      border-radius: $borderMedium;
+      width: 45%;
+      height: 3.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}

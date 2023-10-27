@@ -1,0 +1,79 @@
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  padding: 0.7rem;
+  height: 3.2rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid $formBorder;
+  transition: border 0.3s ease;
+  // background-color: $coloredText;
+  &:focus {
+    border: 2px solid $primary;
+    outline: none;
+  }
+
+  @media (max-width:$layout-breakpoint-medium) {
+    font-size: $textSemiMedium;
+
+  }
+}
+
+label{
+  font-size: $textSmall;
+}
+
+.inputFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  &:nth-child(n+2) {
+    margin-top: 1rem;
+}
+}
+
+.textCenter {
+  text-align: center;
+  font-weight: $fontSemiBold;
+}
+
+.errorText{
+  color: red;
+  font-size: $textSmall;
+}
+
+.formHeader{
+  color: $black;
+  font-size: $textSemiMedium;
+  font-weight: $fontSemiBold;
+}
+
+// For OTP pin input component from react-pin-input
+.pincode-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+}

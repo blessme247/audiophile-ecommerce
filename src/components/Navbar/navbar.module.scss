@@ -1,0 +1,51 @@
+@import "../../styles/sass/abstracts/variables";
+@import "../../styles/sass/components/globals";
+@import "../../styles/sass/components/mixins";
+
+.navbar {
+    background-color: $black;
+    height: 6rem;
+}
+
+.navWrapper {
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    @extend %flex;
+    height: 100%;
+    border-bottom: 1px solid #ffffff33;
+}
+
+.navLinks {
+    @extend %flex-ac;
+    gap: 1.5rem;
+    .navLinkWrapper {
+        position: relative;
+    }
+    .navLink {
+        color: $white;
+        text-transform: uppercase;
+        font-size: toRem(13);
+        letter-spacing: .2rem;
+        font-weight: $fontBold;
+        transition: all .2s ease;   
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .linkUnderline {
+        position: absolute;
+        top: 1.38rem;
+        left: 0;
+        height: 1px;
+        background-color: $primary;
+        width: 0%;
+        transition: all .3s ease;
+    }
+
+    /* Set width to 100% on hover */
+    .navLink:hover + .linkUnderline {
+        width: 100%;
+      }
+}

@@ -1,0 +1,57 @@
+@import "../components/mixins";
+
+// Breakpoints
+$layout-breakpoint-large: 1920px;
+$layout-breakpoint-semiMedium: 1440px;
+$layout-breakpoint-medium: 960px;
+$layout-breakpoint-small: 760px;
+$layout-breakpoint-xsmall: 580px;
+$layout-breakpoint-xxsmall: 480px;
+
+// Colors and Text Colors
+$primary: #D87D4A;
+$primary-light: #FBAF85;
+$secondary: #101010;
+$gray: #F1F1F1;
+$gray-light: #FAFAFA;
+$black: #000000;
+$black-light: rgba(0, 0, 0, 0.5);
+$white: #FFFFFF;
+$white-light: rgba(255, 255, 255, 0.502);
+$faded-text: #FFFFFF7E;
+$white-lighter: rgba(255, 255, 255, 0.749);
+
+
+
+//fontSize
+$heroText: toRem(56); // 56px
+$textLarge: 2rem; //32px
+$textMedium: 1.5rem; // 24px
+$textSemiMediumLarge: 1.25rem; //20px
+$textSemiMedium: 1.125rem; // 18px
+$textBase: 1rem;
+$textSmall: 0.875rem; //14px
+$textXtraSmall: 0.75rem; //12px
+$textXXSmall: toRem(10);
+$modalText: 1.25rem; //20px
+
+//font-weight
+$fontMedium: 500;
+$fontSemiBold: 600;
+$fontBold: 700;
+
+//Border
+
+
+//padding
+$smallPadding: 0.625rem;
+
+//Form 
+$formBorder: #cfcfcf;
+
+//Button 
+$btnHeight: 3rem;
+
+// Margin
+$mt64: toRem(64)
+
