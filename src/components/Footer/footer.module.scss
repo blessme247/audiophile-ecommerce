@@ -1,0 +1,149 @@
+@import "../../styles/sass/abstracts/variables";
+@import "../../styles/sass/components/globals";
+@import "../../styles/sass/components/mixins";
+
+.footerSection {
+    background-color: $secondary;
+    width: 100%;
+    
+    .footerWrapper {
+        padding: 4rem 0;
+        position: relative;
+        width: 1200px;
+        max-width: 80%;
+        margin: 0 auto;
+
+        .absolute {
+            position: absolute;
+            height: .25rem;
+            background-color: $primary;
+            top: 0;
+            width: 100px;
+            left: 0;
+
+            @media (max-width:$layout-breakpoint-xsmall ) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .footerTop {
+            @extend %flex;
+            margin-bottom: 2rem;
+            @media(max-width: $layout-breakpoint-medium) {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: flex-start;
+            }
+
+            .logoWrapper{
+                @media (max-width:$layout-breakpoint-xsmall ) {
+                    align-self: center;
+                }
+            }
+
+            .navLinks {
+                @extend %flex-ac;
+                gap: 1.5rem;
+                @media (max-width:$layout-breakpoint-xsmall ) {
+                    flex-direction: column;
+                    justify-self: center;
+                    width: 100%;
+                }
+                .navLinkWrapper {
+                    position: relative;
+
+                    .navLink {
+                        color: $white;
+                        text-transform: uppercase;
+                        font-size: toRem(13);
+                        letter-spacing: .2rem;
+                        font-weight: $fontBold;
+                        transition: all .2s ease;   
+                        &:hover {
+                            color: $primary;
+                        }
+
+                        .linkUnderline {
+                            position: absolute;
+                            top: 1.38rem;
+                            left: 0;
+                            height: 1px;
+                            background-color: $primary;
+                            width: 0%;
+                            transition: all .3s ease;
+                        }
+                    }
+                }
+                
+            
+                
+            
+                /* Set width to 100% on hover */
+                .navLink:hover + .linkUnderline {
+                    width: 100%;
+                  }
+            }
+
+            
+
+        }
+
+        .footerMiddle {
+            margin-bottom: 2rem;
+            p {
+                color: $white-light;
+                font-size: toRem(15);
+                width: 50%;
+                font-weight: $fontMedium;
+                @media(max-width: $layout-breakpoint-medium) {
+                    width: 90%;
+                }
+                @media (max-width:$layout-breakpoint-xsmall ) {
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+
+        .footerBottom {
+            @extend %flex;
+            height: 6rem;
+            @media (max-width:$layout-breakpoint-xsmall ) {
+                flex-direction: column;
+            }
+            p {
+                font-weight: $fontBold;
+                color: $white-light;
+                align-self: flex-end;
+                @media(max-width: $layout-breakpoint-medium) {
+                    align-self: flex-start;
+                }
+                @media (max-width:$layout-breakpoint-xsmall ) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .footerSocial {
+                align-self: flex-start;
+                @extend %flex-ac;
+                gap: 1rem;
+                @media (max-width:$layout-breakpoint-xsmall ) {
+                    width: 100%;
+                    justify-content: center;
+                }
+                a {
+                    display: inline-block;
+                    color: $white;
+                    transition: all 0.3s ease;
+                    &:hover {
+                        color: $primary;
+                    }
+
+                }
+            }
+        }
+    }
+
+}

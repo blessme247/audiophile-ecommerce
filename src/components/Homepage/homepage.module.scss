@@ -2,8 +2,36 @@
 @import "../../styles/sass/components/globals";
 @import "../../styles/sass/components/mixins";
 
+.subText {
+    color: $white-lighter;
+    font-size: toRem(15);
+    font-weight: $fontMedium;
+    line-height: 1.5;
+    margin-bottom: 2.4rem;
+}
+
+.mainText {
+    color: $white;
+    font-size: $heroText;
+    line-height: 1.05;
+    margin-bottom: 2.4rem;
+}
+
+.productBtn{
+    display: inline-block;
+    padding: 15px 29px;
+    color: $white;
+    border: 0.1rem solid transparent;
+    font-size: toRem(13);
+    letter-spacing: .1rem;
+    font-weight: $fontBold;
+    transition: all .2s ease;
+}
+
+
+
 .heroSection {
-    // height: 80vh;
+    
     
 
     .heroContent {
@@ -16,6 +44,10 @@
     .heroTextContent{
         width: 40%;
 
+        a {
+            background-color: $primary;
+        }
+
 
         .contentHeading {
             color: $faded-text;
@@ -24,35 +56,223 @@
             margin-bottom: 2.4rem;
         }
 
-        .mainText {
-            color: $white;
-            font-size: $heroText;
-            line-height: 1.05;
-            margin-bottom: 2.4rem;
-        }
-
-        .subText{
-            color: $white-lighter;
-            font-size: toRem(15);
-            font-weight: $fontMedium;
-            line-height: 1.5;
-            margin-bottom: 2.4rem;
-        }
-
-        .productBtn{
-            display: inline-block;
-            background-color: $primary;
-            padding: 15px 29px;
-            color: $white;
-            border: 0.1rem solid transparent;
-            font-size: toRem(13);
-            letter-spacing: .1rem;
-            font-weight: $fontBold;
-            transition: all .2s ease;
-        }
-
     }
 
   
     }
+}
+
+.categoriesSection {
+    background-color: $white;
+    width: 1200px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 7rem 0;
+
+    .productCategories {
+        @extend %flex;
+        margin-top: 5rem;
+        flex-wrap: wrap;
+
+        .productCategory {
+            background-color: $gray;
+            width: 31%;
+            border-radius: 10px;
+            position: relative;
+            height: 240px;
+
+            span {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -60%);
+            }
+
+            p {
+                text-align: center;
+                font-size: toRem(15);
+                font-weight: $fontBold;
+            }
+
+            img {
+                position: absolute;
+                top: -25%;
+                left: 50%;
+                transform: translateX(-50%);
+                display: block;
+                object-fit: cover;
+                object-position: center;
+               
+            }
+            .productImage1, .productImage2 {
+                width: 110px;
+                height: 140px; 
+            }
+
+            .productImage3 {
+                width: 130px;
+                height: 140px; 
+            }
+
+            .linkWrapper {
+                @extend %flex-ac;
+                gap: .4rem;
+                margin-top: 1rem;
+                justify-content: center;
+           
+
+            .redirectBtn{
+                color: #00000080;
+                text-align: center;
+                font-size: toRem(13);
+                letter-spacing: .1rem;
+                font-weight: $fontBold;
+                transition: color 0.3s ease;
+                &:hover {
+                    color: $primary;
+                }
+
+                span {
+                    border: 1px solid red;
+                }
+
+            }
+            }
+
+        }
+    }
+
+    .subCategory1 {
+        height: 80vh;
+        margin-top: 7rem;
+        background: #d87d4a;
+        border-radius: 10px;
+        background-image: url("../../assets/images/oval-desktop.webp");
+        background-position: 0% 78%;
+        background-size: 75%;
+        background-repeat: no-repeat;
+
+        .subCategoryContent {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 72%;
+            margin: 0 auto;
+            height: 100%;
+            .left {
+                width: 48%;
+                height: 500px;
+                img {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+
+            .right {
+                align-self: center  ;
+            }
+        }
+    }
+
+    .subCategory2 {
+        margin-top: 3rem;
+        background-image: url("../../assets/images/zx7-desktop.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 19rem;
+        border-radius: 10px;
+
+        .subCategoryDetails {
+            margin: 0 auto;
+            width: 72%;
+            height: 100%;
+            padding-top: 6rem;
+
+            h2 {
+                margin-bottom: 1rem;
+                font-size: toRem(28);
+            }
+
+            a {
+                background-color: transparent;
+                border: 1px solid $black;
+                color: $black;
+                &:hover {
+                    color: $white;
+                    background-color: $black;
+                }
+            }
+        }
+    }
+
+    .subCategory3 {
+        margin-top: 3rem;
+        @extend %flex;
+        height: 19rem;
+        @media (max-width:$layout-breakpoint-xsmall ) {
+            flex-direction: column;
+            gap: toRem(24);
+        }
+
+         .left {
+          border-radius: 10px;  
+          width: 49.5%;
+          height: 100%;
+          @media (max-width:$layout-breakpoint-xsmall ) {
+            width: 100%;
+        }
+          img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+          }
+
+        }
+
+        .right {
+            background-color: $gray;
+            width: 49.5%;
+            height: 100%;
+            border-radius: 10px;
+            position: relative;
+            @media (max-width:$layout-breakpoint-xsmall ) {
+                width: 100%;
+                border: 1px solid red;
+                
+            }
+
+            .productDetails {
+                
+                position: absolute;
+                top: 50%;
+                left: 15%;
+                transform: translateY(-50%);
+                h2 {
+                    margin-bottom: 1rem;
+                    font-size: toRem(28);
+                }
+
+                a {
+                    background-color: transparent;
+                    border: 1px solid $black;
+                    color: $black;
+                    &:hover {
+                        color: $white;
+                        background-color: $black;
+                    }
+                }
+
+            }
+          }
+    }
+
+
+
 }
