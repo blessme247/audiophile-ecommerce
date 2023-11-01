@@ -9,6 +9,7 @@
     @media(max-width: $layout-breakpoint-medium) {
         flex-direction: column-reverse;
         gap: 2.5rem;
+        margin-top: 12rem;
     }
 
     .left {

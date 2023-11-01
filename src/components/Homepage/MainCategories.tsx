@@ -30,7 +30,7 @@ const MainCategories = () => {
           <div key={index} className={productCategory}>
             <Image src={category.src} alt="product image" className={index == 0 ? productImage1 : index == 1 ? productImage2 : productImage3}/>
             <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="183" height="102" viewBox="0 0 183 102" fill="none" ><g filter="url(#filter0_f_0_4622)" ><ellipse cx="91.5" cy="51" rx="47.4444" ry="7" fill="black" ></ellipse></g><defs ><filter id="filter0_f_0_4622" x="0.563034" y="0.507492" width="181.874" height="100.985" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB" ><feFlood flood-opacity="0" result="BackgroundImageFix" ></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" ></feBlend><feGaussianBlur stdDeviation="21.7463" result="effect1_foregroundBlur_0_4622" ></feGaussianBlur></filter></defs></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="183" height="102" viewBox="0 0 183 102" fill="none" ><g filter="url(#filter0_f_0_4622)" ><ellipse cx="91.5" cy="51" rx="47.4444" ry="7" fill="black" ></ellipse></g><defs ><filter id="filter0_f_0_4622" x="0.563034" y="0.507492" width="181.874" height="100.985" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB" ><feFlood floodOpacity="0" result="BackgroundImageFix" ></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" ></feBlend><feGaussianBlur stdDeviation="21.7463" result="effect1_foregroundBlur_0_4622" ></feGaussianBlur></filter></defs></svg>
             <p>{category.title}</p>
             <div className={linkWrapper}>
             <Link href={category.url} className={redirectBtn}>SHOP </Link>

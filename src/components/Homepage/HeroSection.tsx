@@ -1,5 +1,4 @@
 import styles from "@/components/Homepage/homepage.module.scss"
-import Image from "next/image"
 import Link from "next/link"
 
 

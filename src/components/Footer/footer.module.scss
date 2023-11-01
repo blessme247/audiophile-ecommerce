@@ -5,6 +5,9 @@
 .footerSection {
     background-color: $secondary;
     width: 100%;
+    @media (max-width:$layout-breakpoint-xsmall ) {
+        margin-top: -4rem;
+    }
     
     .footerWrapper {
         padding: 4rem 0;
