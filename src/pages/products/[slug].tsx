@@ -5,6 +5,7 @@ import { Product } from "@/types/product"
 import styles from "@/pages/products/product.module.scss";
 import { useRouter } from 'next/router';
 import ProductDetails from "@/components/Product/ProductDetails";
+import ProductFeatures from "@/components/Product/ProductFeatures";
 
 export const getStaticPaths = async ()=>{
   
@@ -33,7 +34,7 @@ export const getStaticProps = async (context:any)=>{
 
 const Product = ({product}:{ product: Product }) => {
 
-  const {main, productWrapper, backButton} = styles
+  const {main, productWrapper, backButton, buttons} = styles
 
   const router = useRouter()
 
@@ -47,6 +48,7 @@ const Product = ({product}:{ product: Product }) => {
       <div className={productWrapper}>
       <button onClick={handleGoBack} className={backButton}>Go back</button>
       <ProductDetails product={product}/>
+      <ProductFeatures product={product}/>
       <PreFooter/>
       </div>
       </main>

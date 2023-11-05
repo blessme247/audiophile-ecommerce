@@ -59,6 +59,99 @@
                     margin: 2rem 0 2.9375rem;
 
                 }
+
+                .buttons{
+                    @extend %flex-ac;
+                    gap: 1rem;
+                    .qtyUpdateButtons{
+                        background-color: $gray;
+                        padding: 14px 29.5px;
+                        max-width: max-content;
+                        @extend %flex-ac;
+                        gap: 1.2rem;
+
+                        button{
+                            color: $black-lighter;
+                            font-size: toRem(16);
+                            font-weight: $fontBold;
+                            transition: all .2s ease;
+                            background-color: transparent;
+                            border: none;
+                            &:hover {
+                                color: $primary;
+                            }
+                        }
+
+                        span {
+                            font-weight: $fontBold;
+                            color: $black;
+                        }
+                    }
+                    .addtoCartButton{
+                        display: inline-block;
+                        background: $primary;
+                        padding: 17px 29.5px;
+                        color: $white;
+                        transition: all .2s ease;
+                        font-weight: $fontBold;
+                        font-size: toRem(13);
+                        border: transparent;
+                        &:hover {
+                            opacity: 0.7;
+                        }
+                    }
+                }
+            }
+        }
+
+        .productFeatures{
+            margin-top: 6rem;
+            @extend %flex;
+
+            .left {
+                width: 55%;
+                h3{
+                    font-weight: $fontBold;
+                    letter-spacing: 1.114px;
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                }
+                p {
+                    color: $black-light;
+                }
+            }
+
+            .right {
+                align-self: flex-start;
+                width: 35%;
+                h3 {
+                    font-weight: $fontBold;
+                    letter-spacing: 1.114px;
+                    font-size: 2rem;
+                    margin-bottom: 2rem; 
+                }
+                .featuresList {
+                    display: flex;
+                    flex-direction: column;
+                    gap: toRem(8);
+
+                    li {
+                        list-style-type: none;
+                        @extend %flex-ac;
+                        gap: 1rem;
+                        span{
+                            &:nth-child(1){
+                                font-weight: $fontBold;
+                                color: $primary;
+                            }
+                            &:nth-child(2){
+                                font-weight: $fontMedium;
+                                color: $black-light;
+                                font-size: toRem(15);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
