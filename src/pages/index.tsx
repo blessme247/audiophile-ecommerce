@@ -8,7 +8,7 @@ export default function Home() {
   return (
       <>
       <section className='homeHero' >
-        <Navbar style={{backgroundColor: "inherit"}}/>
+        <Navbar style={{backgroundColor: "transparent"}}/>
 
       <HeroSection/>
       </section>

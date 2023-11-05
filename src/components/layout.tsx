@@ -1,7 +1,8 @@
+import Footer from './Footer/Footer'
 import Navbar from './Navbar/Navbar'
 import { ReactElement } from 'react'
 
-type ChildrenType = {children?: ReactElement}
+type ChildrenType = {children?: ReactElement }
 
 export default function Layout({ children }: ChildrenType) {
   return (
@@ -10,6 +11,7 @@ export default function Layout({ children }: ChildrenType) {
       <body >
       <Navbar/>
         {children}
+      <Footer/>
         </body>
     </html>
   )

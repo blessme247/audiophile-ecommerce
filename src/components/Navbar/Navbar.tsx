@@ -2,14 +2,14 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import Link from "next/link";
 import styles from "@/components/Navbar/navbar.module.scss";
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 
 interface NavbarProps {
   style?: CSSProperties;
 }
 
 const Navbar = ({style}:NavbarProps) => {
-  const [activeLink, setActiveLink] = useState(false);
+
 
   const { navbar, navWrapper, navLinks, navLinkWrapper, navLink, linkUnderline } = styles;
 

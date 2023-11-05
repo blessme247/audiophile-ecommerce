@@ -7,14 +7,14 @@
     font-size: toRem(15);
     font-weight: $fontMedium;
     line-height: 1.5;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.5rem;
 }
 
 .mainText {
     color: $white;
     font-size: $heroText;
     line-height: 1.05;
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.5rem;
 }
 
 .productBtn{
@@ -32,17 +32,31 @@
 
 .heroSection {
     
-    
-
     .heroContent {
     width: 1200px;
     max-width: 80%;
     margin: 0 auto;
-    @extend %flex;
     padding: 5rem 0;
+    
     
     .heroTextContent{
         width: 40%;
+        @media(max-width: $layout-breakpoint-medium) {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        @media(max-width: $layout-breakpoint-xsmall) {
+            width: 100%;
+            
+        } 
+
+        h1 {
+            @media(max-width: $layout-breakpoint-xsmall) {
+                font-size: toRem(36);
+                min-width: max-content;
+            } 
+        }
 
         a {
             background-color: $primary;
@@ -129,7 +143,7 @@
             }
 
             .productImage3 {
-                width: 130px;
+                width: 135px;
                 height: 140px; 
             }
 

@@ -1,0 +1,65 @@
+@import "../../styles/sass/abstracts/variables";
+@import "../../styles/sass/components/globals";
+@import "../../styles/sass/components/mixins";
+
+
+.main {
+    background-color: $gray-light;
+
+    .productWrapper {
+        width: 1200px;
+        max-width: 80%;
+        margin: 4rem auto 7rem;
+    
+        .backButton{
+            border: none;
+            background-color: transparent;
+            font-size: toRem(15);
+            color: #00000080;
+        }
+    
+        .productDetails {
+            margin-top: 4rem;
+            @extend %flex;
+    
+            .left {
+                width: 45%;
+                background-color: $gray;
+                border-radius: 8px;
+                img {
+                    @extend %img-fluid;
+                    
+                }
+            }
+    
+            .right {
+                width: 40%;
+                .productHeading {
+                    font-size: $textSmall;
+                    letter-spacing: 10px;
+                    color: $primary;
+                    margin-bottom: toRem(17);
+                }
+                h2 {
+                    font-size: toRem(40);
+                    text-transform: uppercase;
+                    font-weight: $fontBold;
+                    margin-bottom: 2rem;
+                    letter-spacing: 1px;
+                }
+                .productBrief{
+                    font-size: toRem(15);
+                    line-height: toRem(25);
+                    color: $black-light;
+                }
+                .price {
+                    font-size: toRem(18);
+                    letter-spacing: 1px;
+                    line-height: toRem(24);
+                    margin: 2rem 0 2.9375rem;
+
+                }
+            }
+        }
+    }
+}
