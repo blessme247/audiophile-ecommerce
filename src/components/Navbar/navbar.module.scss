@@ -8,8 +8,7 @@
 }
 
 .navWrapper {
-    width: 1200px;
-    max-width: 80%;
+    @extend %container;
     margin: 0 auto;
     @extend %flex;
     height: 100%;

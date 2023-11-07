@@ -12,8 +12,7 @@
   .footerWrapper {
     padding: 4rem 0;
     position: relative;
-    width: 1200px;
-    max-width: 80%;
+    @extend %container;
     margin: 0 auto;
     .absolute {
       position: absolute;

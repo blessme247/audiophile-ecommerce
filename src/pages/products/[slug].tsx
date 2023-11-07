@@ -6,6 +6,8 @@ import styles from "@/pages/products/product.module.scss";
 import { useRouter } from 'next/router';
 import ProductDetails from "@/components/Product/ProductDetails";
 import ProductFeatures from "@/components/Product/ProductFeatures";
+import ProductGallery from "@/components/Product/ProductGallery";
+import ProductsSuggestions from "@/components/Product/ProductsSuggestion";
 
 export const getStaticPaths = async ()=>{
   
@@ -49,6 +51,8 @@ const Product = ({product}:{ product: Product }) => {
       <button onClick={handleGoBack} className={backButton}>Go back</button>
       <ProductDetails product={product}/>
       <ProductFeatures product={product}/>
+      <ProductGallery product={product}/>
+      <ProductsSuggestions product={product}/>
       <PreFooter/>
       </div>
       </main>

@@ -33,8 +33,7 @@
 .heroSection {
     
     .heroContent {
-    width: 1200px;
-    max-width: 80%;
+    @extend %container;
     margin: 0 auto;
     padding: 5rem 0;
     
@@ -78,8 +77,7 @@
 
 .categoriesSection {
     background-color: $white;
-    width: 1200px;
-    max-width: 80%;
+    @extend %container;
     margin: 0 auto;
     padding: 7rem 0;
 
