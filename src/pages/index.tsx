@@ -19,8 +19,23 @@ export default function Home() {
   return (
       <>
       <Head> 
-      <title >Audiophile </title>
-      <meta name="description" content={`One stop online shop for quality headphones, speakers and earphones`} />
+      <title >Audiophile | Home </title>
+
+       {/* Meta Tags for Description and Social Sharing */}
+      <meta name="description" content={`All in one stop to fulfill your audio needs and get the most out of personal audio.`} />
+
+      {/* Open Graph meta tags for social sharing (Facebook, LinkedIn, etc.)  */}
+      <meta property="og:title" content={`Audiophile | Home`} />
+      <meta property="og:description" content={`All in one stop to fulfill your audio needs and get the most out of personal audio.`} />
+      <meta property="og:site_name" content="Audiophile" />
+      <meta property="og:site" content="website" />
+      <meta property="og:image" content="https://res.cloudinary.com/juwon-tech/image/upload/v1696234058/Screenshot_2023-10-02_at_09.06.55_mkc9co.png" />
+
+       {/* Twitter Card meta tags for social sharing (Twitter)  */}
+       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Audiophile | Home" />
+      <meta name="twitter:description" content="All in one stop to fulfill your audio needs and get the most out of personal audio." />
+      <meta name="twitter:image" content="https://res.cloudinary.com/juwon-tech/image/upload/v1696234058/Screenshot_2023-10-02_at_09.06.55_mkc9co.png" />
     </Head>
       <section className='homeHero' >
         <Navbar style={{backgroundColor: "transparent"}}/>
