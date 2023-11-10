@@ -1,12 +1,17 @@
+
+
 import styles from "@/components/Homepage/homepage.module.scss"
 
 import Earphones from "@/assets/images/yx1-mobile.webp";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const SubCategory3 = () => {
 
-    const {subCategory3, left, right, productDetails, productBtn} = styles
+  const router = useRouter()
+
+  const {subCategory3, left, right, productDetails, productBtn, navigateBtn} = styles
+
   return (
     <section className={subCategory3}>
         <div className={left}>
@@ -15,7 +20,9 @@ const SubCategory3 = () => {
         <div className={right}>
         <div className={productDetails}>
             <h2>YX1 EARPHONES</h2>
-            <Link href="#" className={productBtn} >SEE PRODUCT</Link>
+            <button type="button" className={navigateBtn}  onClick={() => router.push(`/products/yx1-earphones`)}>
+      See Product
+    </button>
         </div>
         </div>
     </section>

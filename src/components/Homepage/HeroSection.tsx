@@ -1,10 +1,15 @@
+"use-client"
+
 import styles from "@/components/Homepage/homepage.module.scss"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 
 const HeroSection = () => {
 
-    const {heroSection,heroContent, heroTextContent, contentHeading, mainText, subText, productBtn} = styles
+  const router = useRouter()
+
+  const {heroSection,heroContent, heroTextContent, contentHeading, mainText, subText, productBtn} = styles
+
   return (
     <div className={heroSection}>
       <div className={heroContent}>
@@ -17,7 +22,9 @@ const HeroSection = () => {
           Experience natural, lifelike audio and exceptional <br /> build quality made for the passionate music <br /> enthusiast.
           </p>
 
-          <Link href="#" className={productBtn}>SEE PRODUCT</Link>
+          <button type="button" className={productBtn} onClick={() => router.push(`/products/xx99-mark-two-headphones`)}>
+      See Product
+    </button>
         </div>
 
       

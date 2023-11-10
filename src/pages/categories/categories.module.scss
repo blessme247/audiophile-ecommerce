@@ -1,0 +1,118 @@
+@import "../../styles/sass/abstracts/variables";
+@import "../../styles/sass/components/globals";
+@import "../../styles/sass/components/mixins";
+
+
+.main {
+    background-color: $gray-light;
+
+
+    .categoriesPage {
+        .header {
+            background-color: $black;
+            height: 15rem;
+            @extend %flex-ac;
+            justify-content: center;
+    
+            h2 {
+               @extend %heading2; 
+               color: $white;
+            }
+        }
+        .category {
+            margin: 8rem auto 0;
+            @extend %container;
+            @extend %flex;
+            &:nth-child(odd){
+                flex-direction: row-reverse;
+                @media (max-width: $layout-breakpoint-medium) {
+                    flex-direction: column;
+                  }
+            }
+            @media (max-width: $layout-breakpoint-medium) {
+                flex-direction: column;
+              }
+    
+            .imageContainer {
+                width: 45%;
+                background-color: $gray;
+                border-radius: 8px;
+                padding: toRem(80);
+                height: toRem(560);
+                max-width: toRem(540);
+                @extend %flex-ac;
+                justify-content: center;
+                @media (max-width: $layout-breakpoint-medium) {
+                    height: toRem(480);
+                    padding: toRem(40);
+                    width: 100%;
+                    max-width: 100%;
+                  }
+                  @media (max-width: $layout-breakpoint-xsmall) {
+                    height: toRem(327);
+                    padding: toRem(40);
+                  }
+                img {
+                    @extend %img-fluid-down;
+                }
+                .desktopImage {
+                    @media (max-width: $layout-breakpoint-xsmall) {
+                        display: none;
+                      }
+                }
+
+                .mobileImage {
+                    display: none;
+                    @media (max-width: $layout-breakpoint-xsmall) {
+                        display: block;
+                      }
+                }
+            }
+            .productDetailsContainer {
+                width: 40%;
+
+                @media (max-width: $layout-breakpoint-medium) {
+                    margin-top: 2rem;
+                    width: 65%;
+                    text-align: center;
+                  }
+
+                  @media (max-width: $layout-breakpoint-xsmall) {
+                    width: 90%;
+                  }
+
+                .productHeading {
+                    font-size: $textSmall;
+                    letter-spacing: 10px;
+                    color: $primary;
+                    margin-bottom: toRem(17);
+                }
+                h2 {
+                    @extend %heading2;
+                    text-align: start;
+                    color: $black;
+                    margin-bottom: 2rem;
+                    @media (max-width: $layout-breakpoint-medium) {
+                        text-align: center;
+                      }
+                }
+                .productBrief{
+                    font-size: toRem(15);
+                    line-height: toRem(25);
+                    color: $black-light;
+                }
+                .navigationBtn {
+                    @extend %baseButton;
+                    margin-top: 2rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .components {
+            @extend %container;
+            margin: 12rem auto 8rem;
+        }
+    }
+    
+}

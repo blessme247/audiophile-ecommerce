@@ -18,14 +18,11 @@
 }
 
 .productBtn{
-    display: inline-block;
-    padding: 15px 29px;
-    color: $white;
-    border: 0.1rem solid transparent;
-    font-size: toRem(13);
-    letter-spacing: .1rem;
-    font-weight: $fontBold;
-    transition: all .2s ease;
+    @extend %baseButton;
+}
+
+.navigateBtn {
+    @extend %navigateBtn;
 }
 
 
@@ -57,10 +54,6 @@
             } 
         }
 
-        a {
-            background-color: $primary;
-        }
-
 
         .contentHeading {
             color: $faded-text;
@@ -76,102 +69,10 @@
 }
 
 .categoriesSection {
-    background-color: $white;
     @extend %container;
     margin: 0 auto;
     padding: 7rem 0;
 
-    .productCategories {
-        @extend %flex;
-        margin-top: 5rem;
-        flex-wrap: wrap;
-        @media(max-width: $layout-breakpoint-xsmall) {
-            flex-direction: column;
-        }
-
-        .productCategory {
-            background-color: $gray;
-            width: 31.5%;
-            border-radius: 10px;
-            position: relative;
-            height: 220px;
-            @media(max-width: $layout-breakpoint-medium) {
-                width: 49%;
-            }
-            @media(max-width: $layout-breakpoint-xsmall) {
-                width: 100%;
-            }
-            &:nth-child(2){
-                @media(max-width: $layout-breakpoint-xsmall) {
-                margin-top: 5rem;
-            }
-            }
-            &:nth-child(3){
-                @media(max-width: $layout-breakpoint-medium) {
-                margin-top: 5rem;
-            }
-            }
-
-            span {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -60%);
-            }
-
-            p {
-                text-align: center;
-                font-size: toRem(15);
-                font-weight: $fontBold;
-            }
-
-            img {
-                position: absolute;
-                top: -25%;
-                left: 50%;
-                transform: translateX(-50%);
-                display: block;
-                object-fit: cover;
-                object-position: center;
-               
-            }
-            .productImage1, .productImage2 {
-                width: 110px;
-                height: 140px; 
-            }
-
-            .productImage3 {
-                width: 135px;
-                height: 140px; 
-            }
-
-            .linkWrapper {
-                @extend %flex-ac;
-                gap: .4rem;
-                margin-top: 1rem;
-                justify-content: center;
-           
-
-            .redirectBtn{
-                color: #00000080;
-                text-align: center;
-                font-size: toRem(13);
-                letter-spacing: .1rem;
-                font-weight: $fontBold;
-                transition: color 0.3s ease;
-                &:hover {
-                    color: $primary;
-                }
-
-                span {
-                    border: 1px solid red;
-                }
-
-            }
-            }
-
-        }
-    }
 
     .subCategory1 {
         height: 80vh;
@@ -211,7 +112,7 @@
                 }
                 img {
                     @extend %img-fluid;
-                    margin-top: 1.92rem;
+                    margin-top: 2.2rem;
                     @media(max-width: $layout-breakpoint-medium) {
                         margin-top: 0;
                     }
@@ -234,7 +135,7 @@
                        text-align: center; 
                     }
                 }
-                a {
+                button {
                     @media(max-width: $layout-breakpoint-medium) {
                        display: flex;
                        justify-content: center;
@@ -270,15 +171,6 @@
                 font-size: toRem(28);
             }
 
-            a {
-                background-color: transparent;
-                border: 1px solid $black;
-                color: $black;
-                &:hover {
-                    color: $white;
-                    background-color: $black;
-                }
-            }
         }
     }
 
@@ -332,16 +224,6 @@
                 h2 {
                     margin-bottom: 1rem;
                     font-size: toRem(28);
-                }
-
-                a {
-                    background-color: transparent;
-                    border: 1px solid $black;
-                    color: $black;
-                    &:hover {
-                        color: $white;
-                        background-color: $black;
-                    }
                 }
 
             }

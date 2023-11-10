@@ -6,6 +6,7 @@
 .main {
     background-color: $gray-light;
 
+
     .productWrapper {
         @extend %container;
         margin: 4rem auto 7rem;
@@ -21,19 +22,57 @@
         .productDetails {
             margin-top: 4rem;
             @extend %flex;
+            @media (max-width: $layout-breakpoint-medium) {
+                flex-direction: column;
+              }
     
             .left {
                 width: 45%;
                 background-color: $gray;
-                border-radius: 8px;
+                border-radius: toRem(8);
+                padding: toRem(80);
+                height: toRem(560);
+                max-width: toRem(540);
+                @extend %flex-ac;
+                justify-content: center;
+                @media (max-width: $layout-breakpoint-medium) {
+                    height: toRem(480);
+                    padding: toRem(40);
+                    width: 100%;
+                    max-width: 100%;
+                  }
+                  @media (max-width: $layout-breakpoint-xsmall) {
+                    height: toRem(327);
+                    padding: toRem(40);
+                    
+                  }
                 img {
                     @extend %img-fluid;
-                    
+                }
+                .desktopImage {
+                    @media (max-width: $layout-breakpoint-xsmall) {
+                        display: none;
+                      }
+                }
+
+                .mobileImage {
+                    display: none;
+                    @media (max-width: $layout-breakpoint-xsmall) {
+                        display: block;
+                      }
                 }
             }
     
             .right {
                 width: 40%;
+                @media (max-width: $layout-breakpoint-medium) {
+                    margin-top: 2rem;
+                    width: 65%;
+                    margin-right: auto;
+                  }
+                  @media (max-width: $layout-breakpoint-xsmall) {
+                    width: 100%;
+                  }
                 .productHeading {
                     font-size: $textSmall;
                     letter-spacing: 10px;
@@ -41,11 +80,10 @@
                     margin-bottom: toRem(17);
                 }
                 h2 {
-                    font-size: toRem(40);
-                    text-transform: uppercase;
-                    font-weight: $fontBold;
+                    @extend %heading2;
+                    color: $black;
                     margin-bottom: 2rem;
-                    letter-spacing: 1px;
+                    text-align: start;
                 }
                 .productBrief{
                     font-size: toRem(15);
@@ -89,16 +127,7 @@
                     }
                     .addtoCartButton{
                         display: inline-block;
-                        background: $primary;
-                        padding: 17px 29.5px;
-                        color: $white;
-                        transition: all .2s ease;
-                        font-weight: $fontBold;
-                        font-size: toRem(13);
-                        border: transparent;
-                        &:hover {
-                            opacity: 0.7;
-                        }
+                        @extend %baseButton;
                     }
                 }
             }
@@ -108,9 +137,16 @@
         .productFeatures{
             margin-top: 6rem;
             @extend %flex;
+            @media (max-width: $layout-breakpoint-medium) {
+                flex-direction: column;
+                gap: 6rem;
+              }
 
             .left {
                 width: 55%;
+                @media (max-width: $layout-breakpoint-medium) {
+                    width: 100%;
+                  }
                 h3{
                     font-weight: $fontBold;
                     letter-spacing: 1.114px;
@@ -125,11 +161,22 @@
             .right {
                 align-self: flex-start;
                 width: 35%;
+                @media (max-width: $layout-breakpoint-medium) {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                  }
+                  @media (max-width: $layout-breakpoint-xsmall){
+                    flex-direction: column;
+                  }
                 h3 {
-                    font-weight: $fontBold;
-                    letter-spacing: 1.114px;
-                    font-size: 2rem;
+                    @extend %heading3;
+                    color: $black;
+                    text-align: start;
                     margin-bottom: 2rem; 
+                    @media (max-width: $layout-breakpoint-xsmall){
+                        margin-bottom: 1rem;
+                      }
                 }
                 .featuresList {
                     display: flex;
@@ -219,41 +266,73 @@
         // Suggestions
         .suggestions {
             margin-top: 6rem;
+            margin-bottom: 12rem;
 
             h3 {
-                font-weight: $fontBold;
-                font-size: 2rem;
-                text-align: center;
+                @extend %heading3; 
+                color: $black;
             }
 
             .products {
                 margin-top: 2rem;
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: toRem(20) toRem(18);
+                grid-template-columns:  repeat(auto-fit,minmax(toRem(223),1fr));;
+                gap: toRem(30);
 
                 .suggestion {
-                    display: flex;
+                    @extend %flex-ac;
                     flex-direction: column;
-                    background-color: $gray;
                     border-radius: 8px;
+                    gap: 2.5rem;
 
-                    .desktopImage {
-                        @extend %img-fluid-down;
+                    .imageWrapper {
+                        height: toRem(318);
+                        padding: toRem(60);
+                        background-color: $gray;
+                        width: 100%;
+                        @extend %flex-ac;
+                        justify-content: center;
+                        border-radius: 8px;
                         @media (max-width: $layout-breakpoint-xsmall) {
+                            height: toRem(120);
+                            padding: 2.5rem;
+                          }
+                        .desktopImage {
+                            @extend %img-fluid-down;
+                            @media (max-width: $layout-breakpoint-xsmall) {
+                                display: none;
+                              }
+                        }
+        
+                        .mobileImage {
                             display: none;
-                          }
+                            @extend %img-fluid-down;
+                            @media (max-width: $layout-breakpoint-xsmall) {
+                                display: block;
+                              }
+                        }
                     }
-    
-                    .mobileImage {
-                        display: none;
-                        @extend %img-fluid-down;
-                        @media (max-width: $layout-breakpoint-xsmall) {
-                            display: block;
-                          }
+
+                    .details {
+                        @extend %flex-ac;
+                        flex-direction: column;
+                        gap: 2rem;
+                        h3 {
+                            letter-spacing: toRem(1.714);
+                            text-transform: uppercase;
+                            font-size: toRem(24);
+                            line-height: normal;
+                        }
+                        a {
+                            @extend %baseButton;
+                        }
                     }
+
+                    
                 }
             }
         }
     }
+
+    
 }

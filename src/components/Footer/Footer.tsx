@@ -6,9 +6,9 @@ import Link from "next/link";
 const Footer = () => {
   const linksData = [
     { url: "/", text: "Home" },
-    { url: "/headphones", text: "Headphones" },
-    { url: "/speakers", text: "Speakers" },
-    { url: "/earphones", text: "Earphones" },
+    { url: "/categories/headphones", text: "Headphones" },
+    { url: "/categories/speakers", text: "Speakers" },
+    { url: "/categories/earphones", text: "Earphones" },
   ];
 
   const {

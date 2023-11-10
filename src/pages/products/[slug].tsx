@@ -8,6 +8,7 @@ import ProductDetails from "@/components/Product/ProductDetails";
 import ProductFeatures from "@/components/Product/ProductFeatures";
 import ProductGallery from "@/components/Product/ProductGallery";
 import ProductsSuggestions from "@/components/Product/ProductsSuggestion";
+import MainCategories from "@/components/Homepage/MainCategories";
 
 export const getStaticPaths = async ()=>{
   
@@ -36,7 +37,7 @@ export const getStaticProps = async (context:any)=>{
 
 const Product = ({product}:{ product: Product }) => {
 
-  const {main, productWrapper, backButton, buttons} = styles
+  const {main, productWrapper, backButton} = styles
 
   const router = useRouter()
 
@@ -53,6 +54,7 @@ const Product = ({product}:{ product: Product }) => {
       <ProductFeatures product={product}/>
       <ProductGallery product={product}/>
       <ProductsSuggestions product={product}/>
+      <MainCategories />
       <PreFooter/>
       </div>
       </main>

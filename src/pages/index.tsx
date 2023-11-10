@@ -3,8 +3,19 @@ import Categories from '@/components/Homepage/Categories'
 import HeroSection from '@/components/Homepage/HeroSection'
 import Navbar from '@/components/Navbar/Navbar'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export default function Home() {
+
+  const router = useRouter()
+
+  useEffect(() => {
+    router.prefetch('/products/yx1-earphones')
+    router.prefetch('/products/zx9-speakers')
+    router.prefetch('/products/zx7-speakers')
+  }, [router])
+
   return (
       <>
       <section className='homeHero' >

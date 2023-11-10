@@ -1,14 +1,22 @@
+"use-client"
+
 import styles from "@/components/Homepage/homepage.module.scss"
-import Link from "next/link"
+import { useRouter } from "next/router"
+
 
 const SubCategory2 = () => {
 
-    const {subCategory2, subCategoryDetails, productBtn} = styles
+  const router = useRouter()
+
+  const {subCategory2, subCategoryDetails, navigateBtn} = styles
+
   return (
     <section className={subCategory2}>
         <div className={subCategoryDetails}>
             <h2>ZX7 SPEAKER</h2>
-            <Link href="#" className={productBtn} >SEE PRODUCT</Link>
+            <button type="button" className={navigateBtn} onClick={() => router.push(`/products/zx7-speakers`)}>
+      See Product
+    </button>
         </div>
     </section>
   )
