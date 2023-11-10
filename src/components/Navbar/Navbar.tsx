@@ -1,50 +1,49 @@
+'use client'
+
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
-import Link from "next/link";
 import styles from "@/components/Navbar/navbar.module.scss";
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
+import Navlinks from "./Navlinks";
+import MobileMenu from "../Modal/Menu";
+import { useRouter } from "next/router";
 
 interface NavbarProps {
   style?: CSSProperties;
 }
 
-const Navbar = ({style}:NavbarProps) => {
+const Navbar = ({ style }: NavbarProps) => {
 
+  const [showModal, setShowModal] = useState<Boolean>(false)
+  const router = useRouter()
 
-  const { navbar, navWrapper, navLinks, navLinkWrapper, navLink, linkUnderline } = styles;
+  const {
+    navbar,
+    navWrapper,
+    navLeft,
+    hamburgerBtn,
+    line,
+  } = styles;
 
-  const linksData = [
-    { url: "/", text: "Home" },
-    { url: "/categories/headphones", text: "Headphones" },
-    { url: "/categories/speakers", text: "Speakers" },
-    { url: "/categories/earphones", text: "Earphones" },
-  ];
+  useEffect(()=>{
+    setShowModal(false)
+  },[router.query])
 
+ 
 
   return (
+    <>
     <nav className={navbar} style={style}>
       <div className={navWrapper}>
-        <div className="navLeft">
+        <div className={navLeft}>
+          <button className={hamburgerBtn} onClick={()=>setShowModal(!showModal)}>
+            <span className={line}></span>
+            <span className={line}></span>
+            <span className={line}></span>
+          </button>
           <Image src={logo} alt="logo" />
         </div>
-        <div className={navLinks}>
-          {linksData.map((link, index) => {
-            
-            return (
-              <div className={navLinkWrapper} key={index}>
-                <Link
-                  href={link.url}
-                  className={navLink}
-                  key={index}
-                  
-                >
-                  {link.text}
-                </Link>
-                <span className={linkUnderline} ></span>
-              </div>
-            );
-          })}
-        </div>
+        <Navlinks/>
         <div className="navRight">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +62,8 @@ const Navbar = ({style}:NavbarProps) => {
         </div>
       </div>
     </nav>
+    {showModal && <MobileMenu/>}
+    </>
   );
 };
 

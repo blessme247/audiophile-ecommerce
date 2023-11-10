@@ -6,6 +6,7 @@ import Speakers from "@/assets/images/speakers.webp";
 import styles from "@/components/Homepage/mainCategories.module.scss";
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
+import { CSSProperties } from "react";
 
 interface Category {
   title: string;
@@ -13,7 +14,11 @@ interface Category {
   url: string;
 }
 
-const MainCategories = () => {
+interface MainCategoriesProp {
+  style?: CSSProperties;
+}
+
+const MainCategories = ({style}: MainCategoriesProp) => {
   const router = useRouter();
 
   const mainCategoriesData: Category[] = [
@@ -36,7 +41,7 @@ const MainCategories = () => {
     <div className={productCategories}>
       {mainCategoriesData.map((category, index) => {
         return (
-          <div key={index} className={productCategory}>
+          <div key={index} className={productCategory} style={style}>
             <Image
               src={category.src}
               alt="product image"

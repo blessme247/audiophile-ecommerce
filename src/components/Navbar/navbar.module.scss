@@ -13,6 +13,27 @@
     @extend %flex;
     height: 100%;
     border-bottom: 1px solid #ffffff33;
+
+    .navLeft {
+        @extend %flex-ac;
+        gap: 2rem;
+        .hamburgerBtn {
+            display: none;
+            @media(max-width: $layout-breakpoint-medium) {
+                display: flex;
+                flex-direction: column;
+                gap: .2rem;
+                background-color: transparent;
+                border: none;
+                span {
+                    background-color: $white;
+                    height: .2rem;
+                    width: 1.1rem;
+                }
+
+            }
+        }
+    }
 }
 
 .navLinks {
@@ -50,4 +71,36 @@
     .navLink:hover + .linkUnderline {
         width: 100%;
       }
+}
+
+
+// Menu modal
+
+.modalWrapper {
+    background-color: #0006;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+
+    .menuModal{
+        background-color: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        cursor: pointer;
+        overflow-y: auto;
+    
+        .modalContainer{
+            @extend %container;
+            padding: 4rem 0;
+            margin: 0 auto;
+        }
+    }
+
 }
