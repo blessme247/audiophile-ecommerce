@@ -9,7 +9,7 @@ export default function Layout({ children }: ChildrenType) {
     <html lang="en">
  
       <body >
-      <Navbar/>
+      <Navbar style={{position: "fixed", top: 0, width: "100%", zIndex: 5}}/>
         {children}
       <Footer/>
         </body>

@@ -9,6 +9,7 @@ import ProductFeatures from "@/components/Product/ProductFeatures";
 import ProductGallery from "@/components/Product/ProductGallery";
 import ProductsSuggestions from "@/components/Product/ProductsSuggestion";
 import MainCategories from "@/components/Homepage/MainCategories";
+import Head from "next/head";
 
 export const getStaticPaths = async ()=>{
   
@@ -47,6 +48,13 @@ const Product = ({product}:{ product: Product }) => {
 
   return (
     <Layout>
+      <>
+      <Head> 
+      <title >Audiophile | {product.name}</title>
+      <meta name="description" content={`Audiophile | ${product.description}`} />
+      <meta property="og:title" content={`Audiophile | ${product.name}`} />
+      <meta property="og:description" content={`Audiophile | ${product.description}`} />
+    </Head>
       <main className={main}>
       <div className={productWrapper}>
       <button onClick={handleGoBack} className={backButton}>Go back</button>
@@ -58,7 +66,7 @@ const Product = ({product}:{ product: Product }) => {
       <PreFooter/>
       </div>
       </main>
-      
+      </>
     </Layout>
   )
 }

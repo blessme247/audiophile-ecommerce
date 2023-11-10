@@ -18,6 +18,10 @@ export default function Home() {
 
   return (
       <>
+      <Head> 
+      <title >Audiophile </title>
+      <meta name="description" content={`One stop online shop for quality headphones, speakers and earphones`} />
+    </Head>
       <section className='homeHero' >
         <Navbar style={{backgroundColor: "transparent"}}/>
 

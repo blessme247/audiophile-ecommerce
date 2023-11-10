@@ -10,6 +10,7 @@ import PreFooter from "@/components/PreFooter/PreFooter";
 import PageHeader from "@/components/Categories/PageHeader";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 
 export const getStaticPaths = async ()=>{
@@ -43,6 +44,7 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
   const {main, categoriesPage, components} = styles
 
   const router = useRouter()
+  const pathSlug = router.query.slug?.toString().toUpperCase()
 
   useEffect(() => {
     router.prefetch('/products/xx99-mark-two-headphones')
@@ -52,6 +54,11 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
 
   return (
     <Layout>
+      <>
+      <Head> 
+      <title >Audiophile | {pathSlug}</title>
+      <meta name="description" content={`Shop from our varieties of ${pathSlug} category`} />
+    </Head>
        <main className={main}>
         <section className={categoriesPage}>
         <PageHeader />
@@ -66,6 +73,7 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
         </div>
         </section>
        </main> 
+       </>
     </Layout>
   )
 }

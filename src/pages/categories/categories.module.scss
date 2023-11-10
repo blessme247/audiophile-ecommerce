@@ -13,6 +13,7 @@
             height: 15rem;
             @extend %flex-ac;
             justify-content: center;
+            margin-top: 6rem;
     
             h2 {
                @extend %heading2; 
