@@ -31,35 +31,19 @@
 
 
 .productCategories {
-    @extend %flex;
     margin-top: 5rem;
-    flex-wrap: wrap;
-    @media(max-width: $layout-breakpoint-xsmall) {
-        flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(toRem(223),1fr));
+    gap: toRem(46) toRem(30);
+    @media(max-width: $layout-breakpoint-medium) {
+        gap: toRem(46) toRem(10);
     }
 
     .productCategory {
-        background-color: $gray;
-        width: 31.5%;
+        background-color: $gray !important;
         border-radius: 10px;
         position: relative;
-        height: 220px;
-        @media(max-width: $layout-breakpoint-medium) {
-            width: 49%;
-        }
-        @media(max-width: $layout-breakpoint-xsmall) {
-            width: 100%;
-        }
-        &:nth-child(2){
-            @media(max-width: $layout-breakpoint-xsmall) {
-            margin-top: 5rem;
-        }
-        }
-        &:nth-child(3){
-            @media(max-width: $layout-breakpoint-medium) {
-            margin-top: 5rem;
-        }
-        }
+        min-height: toRem(210);
 
         span {
             position: absolute;
@@ -76,12 +60,10 @@
 
         img {
             position: absolute;
-            top: -25%;
+            top: -28%;
             left: 50%;
             transform: translateX(-50%);
-            display: block;
-            object-fit: cover;
-            object-position: center;
+            @extend %img-fluid;
            
         }
         .productImage1, .productImage2 {
@@ -114,9 +96,6 @@
                 color: $primary;
             }
 
-            span {
-                border: 1px solid red;
-            }
 
         }
         }

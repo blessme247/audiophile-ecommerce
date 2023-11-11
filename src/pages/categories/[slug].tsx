@@ -64,7 +64,7 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
         <PageHeader />
         {productsBelongingToCategory.map((product)=>{
             return (
-                <ProductCategory product={product} />
+                <ProductCategory product={product} key={product.id} />
             )
         })}
         <div className={components}>

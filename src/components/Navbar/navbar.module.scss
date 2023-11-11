@@ -79,11 +79,12 @@
 .modalWrapper {
     background-color: #0006;
     position: fixed;
-    bottom: 0;
     left: 0;
     width: 100vw;
     height: calc(100vh - 6rem);
     overflow-y: auto;
+    transition: all .2s ease;
+    z-index: 5;
 
     .menuModal{
         background-color: $white;
@@ -95,11 +96,16 @@
         border-bottom-right-radius: 8px;
         cursor: pointer;
         overflow-y: auto;
+        
     
         .modalContainer{
             @extend %container;
             padding: 4rem 0;
             margin: 0 auto;
+
+            @media(max-width: $layout-breakpoint-small){
+                padding: 2rem 0;
+            }
         }
     }
 

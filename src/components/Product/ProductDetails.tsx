@@ -1,11 +1,28 @@
 import { Product } from "@/types/product"
 import styles from "@/pages/products/product.module.scss";
 import ProductQtyUpdate from "./ProductQtyUpdate";
-import AddtoCart from "./AddtoCart";
+import { ReducerAction, ReducerActionType } from "@/helpers/Context/CartProvider";
+import useCart from "@/helpers/Hooks/useCart";
+
+type PropsType = {
+  dispatch: React.Dispatch<ReducerAction>,
+  REDUCER_ACTIONS: ReducerActionType,
+}
 
 const ProductDetails = ({product}:{ product: Product }) => {
     
-    const {productDetails, left, desktopImage, mobileImage,  right, productBrief, productHeading, price, buttons} = styles;
+    const {productDetails, left, desktopImage, mobileImage,  right, productBrief, productHeading, price, buttons, addtoCartButton} = styles;
+
+    const { dispatch, REDUCER_ACTIONS, cart } = useCart()
+
+    const add = ()=>{
+      dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
+
+      console.log(cart)
+      // console.log(product, "product")
+    }
+
+    // const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
 
   return (
     <div className={productDetails}>
@@ -20,7 +37,7 @@ const ProductDetails = ({product}:{ product: Product }) => {
         <h3 className={price}>$ {product.price.toLocaleString()}</h3>
         <div className={buttons}>
       <ProductQtyUpdate/>
-      <AddtoCart/>
+      <button className={addtoCartButton} onClick={add}>ADD TO CART</button>
       </div>
         </div>
     </div>
