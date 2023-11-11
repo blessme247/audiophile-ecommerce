@@ -4,7 +4,7 @@ import MainCategories from "../Homepage/MainCategories";
 import { CSSProperties } from "react";
 
 interface ModalStyleProp {
-  style?: CSSProperties;
+  style: CSSProperties;
 }
 
 const MobileMenu = ({style}: ModalStyleProp) => {
@@ -18,7 +18,7 @@ const MobileMenu = ({style}: ModalStyleProp) => {
     <div className={menuModal}>
         <div className={modalContainer}>
 
-        <MainCategories style={{height:"180px", minWidth: "32.5%"}} />
+        <MainCategories  />
         </div>
     </div>
     </div>

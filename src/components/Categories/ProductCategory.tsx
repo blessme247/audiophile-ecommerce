@@ -1,9 +1,6 @@
-'use client'
-
 import styles from "@/pages/categories/categories.module.scss";
 import { Product } from "@/types/product";
 import { useRouter } from 'next/router'
-import { useEffect } from "react";
 
 const ProductCategory = ({ product }: { product: Product }) => {
 

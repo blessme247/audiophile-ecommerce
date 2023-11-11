@@ -7,6 +7,7 @@ import { CSSProperties, useEffect, useState } from "react";
 import Navlinks from "./Navlinks";
 import MobileMenu from "../Modal/Menu";
 import { useRouter } from "next/router";
+import CartModal from "../Modal/CartModal";
 
 interface NavbarProps {
   style?: CSSProperties;
@@ -15,6 +16,7 @@ interface NavbarProps {
 const Navbar = ({ style }: NavbarProps) => {
 
   const [showModal, setShowModal] = useState<Boolean>(false)
+  const [showCart, setShowCart] = useState<Boolean>(false)
   const router = useRouter()
 
   const {
@@ -51,6 +53,7 @@ const Navbar = ({ style }: NavbarProps) => {
             height="20"
             viewBox="0 0 23 20"
             fill="none"
+            onClick={()=>setShowCart(!showCart)}
           >
             <path
               fillRule="evenodd"
@@ -63,6 +66,7 @@ const Navbar = ({ style }: NavbarProps) => {
       </div>
     </nav>
     <MobileMenu style={{bottom: showModal ? 0 : "-100%"}}/>
+    <CartModal style={{bottom: showCart ? 0 : "-100%"}} />
     </>
   );
 };

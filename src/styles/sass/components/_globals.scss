@@ -100,3 +100,11 @@
     font-size: toRem(28);
   }
 }
+
+%heading6 {
+  font-weight: $fontBold;
+  font-size: toRem(18);
+  text-align: center;
+  letter-spacing: 1.13px;
+  line-height: toRem(24);
+}
