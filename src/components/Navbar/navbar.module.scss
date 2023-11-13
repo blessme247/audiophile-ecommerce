@@ -166,10 +166,120 @@
                     p{
                         text-align: center;
                         font-size: toRem(15);
-                        color: #00000080;
+                        color: $black-light;
                         &:nth-child(2){
                             margin-top: .3rem;
                         }
+                    }
+                }
+            }
+
+            .filledCart {
+                .top{
+                    @extend %flex;
+                    h6 {
+                        @extend %heading6;
+                    }
+                    button{
+                        background-color: transparent;
+                        border: none;
+                        font-size: toRem(15);
+                        color: $black-light;
+                        font-weight: $fontMedium;
+                        text-decoration: underline;
+                        line-height: toRem(25);
+                        transition: color .2s ease;
+                        &:hover{
+                            color: $primary;
+                        }
+                    }
+                }
+
+                .cartList{
+                    margin-top: 2rem;
+                    .item {
+                        @extend %flex;
+                        &:nth-child(n+2){
+                            margin-top: 1.5rem;
+                        }
+                        .itemLeft{
+                            @extend %flex-ac;
+                            gap: .8rem;
+                            .itemImageWrapper {
+                                width: 4rem;
+                                height: 4rem;
+                                background-color: $gray;
+                                padding: toRem(12);
+                                border-radius: toRem(8);
+                                img{
+                                    @extend %img-fluid
+                                }
+                            }
+                            .itemDetails {
+                                display: flex;
+                                flex-direction: column;
+                                gap: .1rem;
+                                p {
+                                    line-height: toRem(25);
+                                    font-weight: $fontBold;
+                                    &:nth-child(1){
+                                        color: $black;
+                                        font-size: toRem(15);
+                                    }
+                                    &:nth-child(2){
+                                        color: $black-light;
+                                        font-size: toRem(14);
+                                    }
+                                }
+                            }
+                        }
+                        .qtyUpdateButtons{
+                            background-color: $gray;
+                            padding: 6px 19.5px;
+                            max-width: max-content;
+                            @extend %flex-ac;
+                            gap: 1.2rem;
+    
+                            button{
+                                color: $black-lighter;
+                                font-size: toRem(16);
+                                font-weight: $fontBold;
+                                transition: all .2s ease;
+                                background-color: transparent;
+                                border: none;
+                                &:hover {
+                                    color: $primary;
+                                }
+                            }
+    
+                            span {
+                                font-weight: $fontBold;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+
+                .totalSection {
+                    @extend %flex;
+                    margin-top: 2rem;
+                    p {
+                        font-weight: $fontBold;
+                        &:nth-child(1){
+                            font-size: toRem(15);
+                            color: $black-light;
+                        }
+                        &:nth-child(2){
+                            font-size: toRem(18);
+                            color: $black;
+                        }
+                    }
+                }
+                .checkoutBtnWrapper{
+                    margin-top: 2rem;
+                    button{
+                        @extend %baseButton;
+                        width: 100%;
                     }
                 }
             }

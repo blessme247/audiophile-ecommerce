@@ -12,7 +12,7 @@ const REDUCER_ACTION_TYPE = {
     QUANTITY: "QUANTITY",
     INCREASE: "INCREASE",
     DECREASE: "DECREASE",
-    SUBMIT: "SUBMIT"
+    removeAll: "removeAll"
 }
 
 export type ReducerActionType = typeof REDUCER_ACTION_TYPE
@@ -30,7 +30,7 @@ CartStateType => {
                 throw new Error('action.payload missing in ADD action')
             }
 
-            const { slug, name, price } = action.payload
+            const { slug } = action.payload
 
             const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
 
@@ -38,9 +38,22 @@ CartStateType => {
 
             const qty: number = itemExists ? itemExists.qty + 1 : 1
 
-            console.log(action.payload, "payload")
+            return { ...state, cart: [...filteredCart, { ...action.payload }] }
+        }
+        case REDUCER_ACTION_TYPE.INCREASE: {
+            if (!action.payload) {
+                throw new Error('action.payload missing in INCREASE action')
+            }
 
-            return { ...state, cart: [...filteredCart, { slug, name, price, qty }] }
+            const { slug } = action.payload
+
+            const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
+
+            const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
+
+            itemExists && itemExists.qty + 1 
+
+            return { ...state, cart: [...filteredCart, { ...action.payload }] }
         }
         case REDUCER_ACTION_TYPE.REMOVE: {
             if (!action.payload) {
@@ -73,7 +86,7 @@ CartStateType => {
 
             return { ...state, cart: [...filteredCart, updatedItem] }
         }
-        case REDUCER_ACTION_TYPE.SUBMIT: {
+        case REDUCER_ACTION_TYPE.removeAll: {
             return {...state, cart:[]}
         }
         default:

@@ -13,16 +13,10 @@ const ProductDetails = ({product}:{ product: Product }) => {
     
     const {productDetails, left, desktopImage, mobileImage,  right, productBrief, productHeading, price, buttons, addtoCartButton} = styles;
 
-    const { dispatch, REDUCER_ACTIONS, cart } = useCart()
+    const { dispatch, REDUCER_ACTIONS } = useCart()
 
-    const add = ()=>{
-      dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
 
-      console.log(cart)
-      // console.log(product, "product")
-    }
-
-    // const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
+    const addItemToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
 
   return (
     <div className={productDetails}>
@@ -37,7 +31,7 @@ const ProductDetails = ({product}:{ product: Product }) => {
         <h3 className={price}>$ {product.price.toLocaleString()}</h3>
         <div className={buttons}>
       <ProductQtyUpdate/>
-      <button className={addtoCartButton} onClick={add}>ADD TO CART</button>
+      <button className={addtoCartButton} onClick={addItemToCart}>ADD TO CART</button>
       </div>
         </div>
     </div>
