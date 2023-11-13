@@ -3,6 +3,7 @@ import styles from "@/pages/products/product.module.scss";
 import ProductQtyUpdate from "./ProductQtyUpdate";
 import { ReducerAction, ReducerActionType } from "@/helpers/Context/CartProvider";
 import useCart from "@/helpers/Hooks/useCart";
+import { CartItemType } from "@/types/cart";
 
 type PropsType = {
   dispatch: React.Dispatch<ReducerAction>,
@@ -11,12 +12,16 @@ type PropsType = {
 
 const ProductDetails = ({product}:{ product: Product }) => {
     
-    const {productDetails, left, desktopImage, mobileImage,  right, productBrief, productHeading, price, buttons, addtoCartButton} = styles;
+    const {productDetails, left, desktopImage, mobileImage,  right, productBrief, productHeading, price, buttons, addtoCartButton, qtyUpdateButtons} = styles;
 
     const { dispatch, REDUCER_ACTIONS } = useCart()
 
 
     const addItemToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
+
+    const increaseItemQty = (cartItem: CartItemType) => dispatch({ type: REDUCER_ACTIONS.INCREASE, payload: { ...cartItem, qty: 1 } })
+
+    const decreaseItemQty = (cartItem: CartItemType) => dispatch({ type: REDUCER_ACTIONS.DECREASE, payload: { ...cartItem, qty: 1 } })
 
   return (
     <div className={productDetails}>
@@ -30,7 +35,11 @@ const ProductDetails = ({product}:{ product: Product }) => {
         <p className={productBrief}>{product.description}</p>
         <h3 className={price}>$ {product.price.toLocaleString()}</h3>
         <div className={buttons}>
-      <ProductQtyUpdate/>
+        <div className={qtyUpdateButtons}>
+                {/* <button onClick={()=>decreaseItemQty(product)}>-</button>
+                <span>{cartItem.qty}</span>
+                <button onClick={()=>increaseItemQty(cartItem)} >+</button> */}
+              </div>
       <button className={addtoCartButton} onClick={addItemToCart}>ADD TO CART</button>
       </div>
         </div>

@@ -8,7 +8,9 @@ const FilledCartList = () => {
 
   const clearCart = () => dispatch({ type: REDUCER_ACTIONS.removeAll })
 
-  const inceaseItemQty = (cartItem: CartItemType) => dispatch({ type: REDUCER_ACTIONS.INCREASE, payload: { ...cartItem, qty: 1 } })
+  const increaseItemQty = (cartItem: CartItemType) => dispatch({ type: REDUCER_ACTIONS.INCREASE, payload: { ...cartItem, qty: 1 } })
+
+  const decreaseItemQty = (cartItem: CartItemType) => dispatch({ type: REDUCER_ACTIONS.DECREASE, payload: { ...cartItem, qty: 1 } })
 
   const {
     filledCart,
@@ -43,9 +45,9 @@ const FilledCartList = () => {
                 </div>
               </div>
               <div className={qtyUpdateButtons}>
-                <button>-</button>
+                <button onClick={()=>decreaseItemQty(cartItem)}>-</button>
                 <span>{cartItem.qty}</span>
-                <button onClick={()=>inceaseItemQty(cartItem)} >+</button>
+                <button onClick={()=>increaseItemQty(cartItem)} >+</button>
               </div>
             </div>
           );

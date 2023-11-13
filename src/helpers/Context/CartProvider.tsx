@@ -8,8 +8,6 @@ const initCartState: CartStateType = {cart: []}
 
 const REDUCER_ACTION_TYPE = {
     ADD: "ADD",
-    REMOVE: "REMOVE",
-    QUANTITY: "QUANTITY",
     INCREASE: "INCREASE",
     DECREASE: "DECREASE",
     removeAll: "removeAll"
@@ -45,47 +43,45 @@ CartStateType => {
                 throw new Error('action.payload missing in INCREASE action')
             }
 
-            const { slug } = action.payload
+            let { slug } = action.payload
 
             const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
 
             const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
-
-            itemExists && itemExists.qty + 1 
-
-            return { ...state, cart: [...filteredCart, { ...action.payload }] }
-        }
-        case REDUCER_ACTION_TYPE.REMOVE: {
-            if (!action.payload) {
-                throw new Error('action.payload missing in REMOVE action')
+            
+            if (itemExists) {
+                const updatedQty = itemExists.qty + 1;
+                const updatedItem: CartItemType = { ...itemExists, qty: updatedQty };
+        
+                return { ...state, cart: [...filteredCart, updatedItem] };
             }
 
-            const { slug } = action.payload
+        }
+        case REDUCER_ACTION_TYPE.DECREASE: {
+            if (!action.payload) {
+                throw new Error('action.payload missing in INCREASE action')
+            }
+
+            let { slug } = action.payload
 
             const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
-
-            return { ...state, cart: [...filteredCart] }
-
-        }
-        case REDUCER_ACTION_TYPE.QUANTITY: {
-            if (!action.payload) {
-                throw new Error('action.payload missing in QUANTITY action')
-            }
-
-            const { slug, qty } = action.payload
 
             const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
+            
+            if (itemExists) {
+                const updatedQty = itemExists.qty - 1;
 
-            if (!itemExists) {
-                throw new Error('Item must exist in order to update quantity')
+                if (updatedQty < 1) {
+                    return { ...state, cart: filteredCart };
+                }
+
+                const updatedItem: CartItemType = { ...itemExists, qty: updatedQty };
+        
+                return { ...state, cart: [...filteredCart, updatedItem] };
             }
 
-            const updatedItem: CartItemType = { ...itemExists, qty }
-
-            const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
-
-            return { ...state, cart: [...filteredCart, updatedItem] }
         }
+        
         case REDUCER_ACTION_TYPE.removeAll: {
             return {...state, cart:[]}
         }
