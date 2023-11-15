@@ -1,26 +1,40 @@
-
-import { ReducerAction,ReducerActionType } from "@/helpers/Context/CartProvider";
+import { ReducerAction, ReducerActionType } from "@/helpers/Context/CartProvider";
+import useCart from "@/helpers/Hooks/useCart";
+import useItemQuantity from "@/helpers/Hooks/useItemQuantity";
 import styles from "@/pages/products/product.module.scss";
 import { CartItemType } from "@/types/cart";
+import { Product } from "@/types/product";
 
 type ProductQtyUpdateProps = {
-  cartItem: CartItemType;
-  dispatch: React.Dispatch<ReducerAction>;
-  REDUCER_ACTIONS: ReducerActionType;
+  product: Product;
+  isInCart?: boolean
 };
 
-const ProductQtyUpdate = ({ cartItem, dispatch, REDUCER_ACTIONS }: ProductQtyUpdateProps) => {
+const ProductQtyUpdate = ({ product, isInCart }: ProductQtyUpdateProps) => {
 
     const {qtyUpdateButtons} = styles
 
-    const increaseItemQty = () => dispatch({ type: REDUCER_ACTIONS.INCREASE, payload: { ...cartItem, qty: 1 } })
+    const { cart } = useCart();
 
-    const decreaseItemQty = () => dispatch({ type: REDUCER_ACTIONS.DECREASE, payload: { ...cartItem, qty: 1 } })
+    const {itemQuantity, setItemQuantity} = useItemQuantity()
+
+    let slug = product.slug
+
+    const itemExists: CartItemType | undefined = cart.find(item => item.slug === slug)
+
+
+    const increaseItemQty = () => {
+      setItemQuantity((prevValue)=> prevValue + 1)
+    }
+
+    const decreaseItemQty = () => {
+      setItemQuantity((prevValue)=> prevValue - 1)
+    };
 
   return (
     <div className={qtyUpdateButtons}>
         <button onClick={decreaseItemQty}>-</button>
-        <span>{cartItem.qty}</span>
+        <span>{ itemQuantity}</span>
         <button onClick={increaseItemQty} >+</button>
     </div>
   )

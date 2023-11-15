@@ -12,6 +12,7 @@ export interface Product {
 	price: number;
 	description: string;
 	features: string;
+	qty: number
 	includes: { quantity: number; item: string }[];
 	gallery: {
 		first: {

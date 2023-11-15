@@ -1,7 +1,6 @@
 import {useReducer, useMemo, createContext, ReactElement} from "react"
 import { CartItemType } from "@/types/cart";
 
-
 type CartStateType = {cart: CartItemType[] }
 
 const initCartState: CartStateType = {cart: []}
@@ -10,7 +9,7 @@ const REDUCER_ACTION_TYPE = {
     ADD: "ADD",
     INCREASE: "INCREASE",
     DECREASE: "DECREASE",
-    removeAll: "removeAll"
+    removeAll: "removeAll",
 }
 
 export type ReducerActionType = typeof REDUCER_ACTION_TYPE
@@ -28,13 +27,11 @@ CartStateType => {
                 throw new Error('action.payload missing in ADD action')
             }
 
-            const { slug } = action.payload
+            let { slug } = action.payload
 
             const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
 
-            const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
-
-            const qty: number = itemExists ? itemExists.qty + 1 : 1
+            // const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
 
             return { ...state, cart: [...filteredCart, { ...action.payload }] }
         }
@@ -80,8 +77,7 @@ CartStateType => {
                 return { ...state, cart: [...filteredCart, updatedItem] };
             }
 
-        }
-        
+        } 
         case REDUCER_ACTION_TYPE.removeAll: {
             return {...state, cart:[]}
         }
@@ -93,9 +89,6 @@ CartStateType => {
  const useCartContext = (initCartState: CartStateType) => {
     const [state, dispatch] = useReducer(reducer, initCartState)
 
-    // Here we memoize the value of the object i.e REDUCER_ACTION_TYPE so that it always has the same referential equality
-    // when it is passed to a component, this memoization will disable re-renders that would have been caused at every instance
-    // of using the any of the REDUCER ACTION TYPES
     const REDUCER_ACTIONS = useMemo(()=>{
         return REDUCER_ACTION_TYPE
     },[])
@@ -111,18 +104,11 @@ CartStateType => {
         },0)
     )
 
-    const cart = state.cart.sort((a,b)=>{
-
-        // Sorting by the last four digits in the item object defined in products.json
-        const itemA = Number(a.slug.slice(-4))
-        const itemB = Number(b.slug.slice(-4))
-        return itemA - itemB
-    })
+    const cart = state.cart
 
     return {dispatch, REDUCER_ACTIONS,totalItems, totalPrice, cart }
 }
 
-// this is a shortcut which gives us the return value from the useCartContext hook
 export type useCartContextType = ReturnType<typeof useCartContext> 
 
 const initCartContextState: useCartContextType = {

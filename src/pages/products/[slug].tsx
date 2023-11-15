@@ -1,3 +1,5 @@
+"use client"
+
 import PreFooter from "@/components/PreFooter/PreFooter"
 import Layout from "@/components/layout"
 import products from "@/data/products.json"
@@ -10,6 +12,8 @@ import ProductGallery from "@/components/Product/ProductGallery";
 import ProductsSuggestions from "@/components/Product/ProductsSuggestion";
 import MainCategories from "@/components/Homepage/MainCategories";
 import Head from "next/head";
+import useItemQuantity from "@/helpers/Hooks/useItemQuantity";
+import { useEffect } from "react"
 
 export const getStaticPaths = async ()=>{
   
@@ -29,7 +33,8 @@ export const getStaticPaths = async ()=>{
 
 export const getStaticProps = async (context:any)=>{
   const productSlug = context.params.slug;
-  const product = products.find((product) => product.slug === productSlug) as Product
+  let product = products.find((product) => product.slug === productSlug) as Product
+  
 
   return {
       props: { product}
@@ -38,13 +43,21 @@ export const getStaticProps = async (context:any)=>{
 
 const Product = ({product}:{ product: Product }) => {
 
+  const {itemQuantity, setItemQuantity} = useItemQuantity()
+  product.qty = itemQuantity
+
   const {main, productWrapper, backButton} = styles
 
   const router = useRouter()
+  const pathSlug = router.query.slug?.toString()
 
   const handleGoBack = () => {
     router.back()
   };
+
+  useEffect(()=>{
+    setItemQuantity(1)
+  },[pathSlug])
 
   return (
     <Layout>
