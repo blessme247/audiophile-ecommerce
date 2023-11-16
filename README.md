@@ -2,11 +2,11 @@
 An E-commerce Website for shopping audio gadgets.
 
 # Project Features
-Dynamic product pages.
-State Management With Context API.
-Improved Performance With React Memo.
-Payment Integration with Paystack.
-Server Side Rendered pages.
+1. Dynamic product pages.
+2. State Management With Context API.
+3. Improved Performance With React Memo.
+4. Payment Integration with Paystack.
+5. Server Side Rendered pages.
 
 # Stack
 The project was bootstraped with Next JS and TypeScript.
