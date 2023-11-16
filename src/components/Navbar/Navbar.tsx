@@ -8,6 +8,7 @@ import Navlinks from "./Navlinks";
 import MobileMenu from "../Modal/Menu";
 import { useRouter } from "next/router";
 import CartModal from "../Modal/CartModal";
+import useCart from "@/helpers/Hooks/useCart";
 
 interface NavbarProps {
   style?: CSSProperties;
@@ -19,12 +20,16 @@ const Navbar = ({ style }: NavbarProps) => {
   const [showCart, setShowCart] = useState<Boolean>(false)
   const router = useRouter()
 
+  const {cart} = useCart()
+
   const {
     navbar,
     navWrapper,
     navLeft,
     hamburgerBtn,
     line,
+    navRight,
+    cartLength
   } = styles;
 
   useEffect(()=>{
@@ -46,7 +51,7 @@ const Navbar = ({ style }: NavbarProps) => {
           <Image src={logo} alt="logo" />
         </div>
         <Navlinks/>
-        <div className="navRight">
+        <div className={navRight}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="23"
@@ -62,7 +67,9 @@ const Navbar = ({ style }: NavbarProps) => {
               fill="white"
             />
           </svg>
+          {cart.length > 0 && <p className={cartLength}></p>}
         </div>
+
       </div>
     </nav>
     <MobileMenu style={{bottom: showModal ? 0 : "-100%"}}/>

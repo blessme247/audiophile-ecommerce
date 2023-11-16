@@ -1,8 +1,13 @@
 import styles from "@/components/Navbar/navbar.module.scss";
 import useCart from "@/helpers/Hooks/useCart";
 import { CartItemType } from "@/types/cart";
+import { Dispatch, SetStateAction } from "react";
 
-const FilledCartList = () => {
+interface FilledCart {
+  setOpenCheckout: Dispatch<SetStateAction<Boolean>>
+}
+
+const FilledCartList = ({setOpenCheckout}: FilledCart) => {
 
   const { totalPrice, cart, REDUCER_ACTIONS, dispatch } = useCart();
 
@@ -58,7 +63,7 @@ const FilledCartList = () => {
         <p>{totalPrice}</p>
       </div>
       <div className={checkoutBtnWrapper}>
-        <button>Checkout</button>
+        <button onClick={()=>setOpenCheckout(true)}>Checkout</button>
       </div>
     </div>
   );

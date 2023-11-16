@@ -1,8 +1,9 @@
 import styles from "@/components/Navbar/navbar.module.scss";
 import useCart from "@/helpers/Hooks/useCart";
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import FilledCartList from "../Cart/FilledCartList";
 import EmptyCart from "../Cart/EmptyCart";
+import EmailModal from "../Cart/EmailModal";
 
 interface CartStyleProp {
   style?: CSSProperties;
@@ -10,6 +11,7 @@ interface CartStyleProp {
 
 const CartModal = ({ style }: CartStyleProp) => {
   const { cart } = useCart();
+  const [openCheckout, setOpenCheckout] = useState<Boolean>(false)
 
   const {cartWrapper, cartModal, cartContainer} = styles;
 
@@ -19,9 +21,10 @@ const CartModal = ({ style }: CartStyleProp) => {
         <div className={cartContainer}>
           {cart.length == 0 ? (
             <EmptyCart />
-          ) : (
-            <FilledCartList />
-          )}
+          ) : (cart.length >= 1 && !openCheckout ) ?  (
+            <FilledCartList setOpenCheckout={setOpenCheckout} />
+          ) : <EmailModal />
+        }
           
         </div>
       </div>

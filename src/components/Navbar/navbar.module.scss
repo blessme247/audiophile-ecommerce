@@ -3,287 +3,330 @@
 @import "../../styles/sass/components/mixins";
 
 .navbar {
-    background-color: $black;
-    height: 6rem;
+  background-color: $black;
+  height: 6rem;
 }
 
 .navWrapper {
-    @extend %container;
-    margin: 0 auto;
-    @extend %flex;
-    height: 100%;
-    border-bottom: 1px solid #ffffff33;
+  @extend %container;
+  margin: 0 auto;
+  @extend %flex;
+  height: 100%;
+  border-bottom: 1px solid #ffffff33;
 
-    .navLeft {
-        @extend %flex-ac;
-        gap: 2rem;
-        .hamburgerBtn {
-            display: none;
-            @media(max-width: $layout-breakpoint-medium) {
-                display: flex;
-                flex-direction: column;
-                gap: .2rem;
-                background-color: transparent;
-                border: none;
-                span {
-                    background-color: $white;
-                    height: .2rem;
-                    width: 1.1rem;
-                }
-
-            }
+  .navLeft {
+    @extend %flex-ac;
+    gap: 2rem;
+    .hamburgerBtn {
+      display: none;
+      @media (max-width: $layout-breakpoint-medium) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        background-color: transparent;
+        border: none;
+        span {
+          background-color: $white;
+          height: 0.2rem;
+          width: 1.1rem;
         }
+      }
     }
+  }
+
+  .navRight {
+    position: relative;
+  }
+  .cartLength {
+    position: absolute;
+    width: toRem(10);
+    height: toRem(10);
+    border-radius: 50%;
+    top: -20%;
+    left: 88%;
+    background-color: $primary;
+    transition: all 0.2s ease;
+  }
 }
 
 .navLinks {
-    @extend %flex-ac;
-    gap: 1.5rem;
-    .navLinkWrapper {
-        position: relative;
-        @media(max-width: $layout-breakpoint-medium) {
-            display: none;
-        }
+  @extend %flex-ac;
+  gap: 1.5rem;
+  .navLinkWrapper {
+    position: relative;
+    @media (max-width: $layout-breakpoint-medium) {
+      display: none;
     }
-    .navLink {
-        color: $white;
-        text-transform: uppercase;
-        font-size: toRem(13);
-        letter-spacing: .2rem;
-        font-weight: $fontBold;
-        transition: all .2s ease;   
-        &:hover {
-            color: $primary;
-        }
+  }
+  .navLink {
+    color: $white;
+    text-transform: uppercase;
+    font-size: toRem(13);
+    letter-spacing: 0.2rem;
+    font-weight: $fontBold;
+    transition: all 0.2s ease;
+    &:hover {
+      color: $primary;
     }
+  }
 
-    .linkUnderline {
-        position: absolute;
-        top: 1.38rem;
-        left: 0;
-        height: 1px;
-        background-color: $primary;
-        width: 0%;
-        transition: all .3s ease;
-    }
+  .linkUnderline {
+    position: absolute;
+    top: 1.38rem;
+    left: 0;
+    height: 1px;
+    background-color: $primary;
+    width: 0%;
+    transition: all 0.3s ease;
+  }
 
-    /* Set width to 100% on hover */
-    .navLink:hover + .linkUnderline {
-        width: 100%;
-      }
+  /* Set width to 100% on hover */
+  .navLink:hover + .linkUnderline {
+    width: 100%;
+  }
 }
-
 
 // Menu modal
 .modalWrapper {
-    background-color: #0006;
-    position: fixed;
+  background-color: #0006;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 6rem);
+  overflow-y: auto;
+  transition: all 0.2s ease;
+  z-index: 5;
+
+  .menuModal {
+    background-color: $white;
+    position: absolute;
+    top: 0;
     left: 0;
-    width: 100vw;
-    height: calc(100vh - 6rem);
+    width: 100%;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
     overflow-y: auto;
-    transition: all .2s ease;
-    z-index: 5;
 
-    .menuModal{
-        background-color: $white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        cursor: pointer;
-        overflow-y: auto;
-        
-    
-        .modalContainer{
-            @extend %container;
-            padding: 4rem 0;
-            margin: 0 auto;
+    .modalContainer {
+      @extend %container;
+      padding: 4rem 0;
+      margin: 0 auto;
 
-            @media(max-width: $layout-breakpoint-small){
-                padding: 2rem 0;
-            }
-        }
+      @media (max-width: $layout-breakpoint-small) {
+        padding: 2rem 0;
+      }
     }
-
+  }
 }
 
 // Cart modal
 .cartWrapper {
-    background-color: #0006;
-    position: fixed;
-    left: 0;
-    // bottom: 0;
-    width: 100vw;
-    height: calc(100vh - 6rem);
+  background-color: #0006;
+  position: fixed;
+  left: 0;
+  // bottom: 0;
+  width: 100vw;
+  height: calc(100vh - 6rem);
+  overflow-y: scroll;
+  z-index: 5;
+  transition: all 0.2s ease;
+
+  .cartModal {
+    cursor: pointer;
     overflow-y: auto;
-    z-index: 5;
-    transition: all .2s ease;
+    @extend %container;
+    margin: 0 auto;
 
-    .cartModal{
-        cursor: pointer;
-        overflow-y: auto;
-        @extend %container;
-        margin: 0 auto;
+    .cartContainer {
+      border-radius: 8px;
+      background-color: $white;
+      width: toRem(377);
+      padding: 3rem 2rem;
+      position: absolute;
+      top: 2rem;
+      right: 14%;
+      transition: all 0.1s ease;
+      overflow-y: auto;
 
-        .cartContainer{
-            border-radius: 8px;
-            background-color: $white;
-            width: toRem(377);
-            padding: 2rem ;
-            position: absolute;
-            top: 2rem;
-            right: 5%;
-            transition: all .1s ease;
+      @media (max-width: $layout-breakpoint-semiMedium) {
+        right: 5%;
+      }
 
-            @media(max-width: $layout-breakpoint-xxsmall){
-                width: 100%;
+      @media (max-width: $layout-breakpoint-xxsmall) {
+        width: 90%;
+      }
+
+      .emptyCart {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        .imageWrapper {
+          width: toRem(64);
+          height: toRem(64);
+          display: flex;
+          justify-content: center;
+          img {
+            @extend %img-fluid;
+          }
+        }
+
+        h6 {
+          @extend %heading6;
+        }
+
+        .texts {
+          p {
+            text-align: center;
+            font-size: toRem(15);
+            color: $black-light;
+            &:nth-child(2) {
+              margin-top: 0.3rem;
             }
+          }
+        }
+      }
 
-            .emptyCart {
+      .filledCart {
+        .top {
+          @extend %flex;
+          h6 {
+            @extend %heading6;
+          }
+          button {
+            background-color: transparent;
+            border: none;
+            font-size: toRem(15);
+            color: $black-light;
+            font-weight: $fontMedium;
+            text-decoration: underline;
+            line-height: toRem(25);
+            transition: color 0.2s ease;
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+
+        .cartList {
+          margin-top: 2rem;
+          .item {
+            @extend %flex;
+            &:nth-child(n + 2) {
+              margin-top: 1.5rem;
+            }
+            .itemLeft {
+              @extend %flex-ac;
+              gap: 0.8rem;
+              .itemImageWrapper {
+                width: 4rem;
+                height: 4rem;
+                background-color: $gray;
+                padding: toRem(12);
+                border-radius: toRem(8);
+                img {
+                  @extend %img-fluid;
+                }
+              }
+              .itemDetails {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-
-                .imageWrapper {
-                    width: toRem(64);
-                    height: toRem(64);
-                    display: flex;
-                    justify-content: center;
-                    img{
-                        @extend %img-fluid;
-                    }
+                gap: 0.1rem;
+                p {
+                  line-height: toRem(25);
+                  font-weight: $fontBold;
+                  &:nth-child(1) {
+                    color: $black;
+                    font-size: toRem(15);
+                  }
+                  &:nth-child(2) {
+                    color: $black-light;
+                    font-size: toRem(14);
+                  }
                 }
-
-                h6 {
-                    @extend %heading6;
-                }
-
-                .texts {
-                    p{
-                        text-align: center;
-                        font-size: toRem(15);
-                        color: $black-light;
-                        &:nth-child(2){
-                            margin-top: .3rem;
-                        }
-                    }
-                }
+              }
             }
+            .qtyUpdateButtons {
+              background-color: $gray;
+              padding: 6px 19.5px;
+              max-width: max-content;
+              @extend %flex-ac;
+              gap: 1.2rem;
 
-            .filledCart {
-                .top{
-                    @extend %flex;
-                    h6 {
-                        @extend %heading6;
-                    }
-                    button{
-                        background-color: transparent;
-                        border: none;
-                        font-size: toRem(15);
-                        color: $black-light;
-                        font-weight: $fontMedium;
-                        text-decoration: underline;
-                        line-height: toRem(25);
-                        transition: color .2s ease;
-                        &:hover{
-                            color: $primary;
-                        }
-                    }
+              button {
+                color: $black-lighter;
+                font-size: toRem(16);
+                font-weight: $fontBold;
+                transition: all 0.2s ease;
+                background-color: transparent;
+                border: none;
+                &:hover {
+                  color: $primary;
                 }
+              }
 
-                .cartList{
-                    margin-top: 2rem;
-                    .item {
-                        @extend %flex;
-                        &:nth-child(n+2){
-                            margin-top: 1.5rem;
-                        }
-                        .itemLeft{
-                            @extend %flex-ac;
-                            gap: .8rem;
-                            .itemImageWrapper {
-                                width: 4rem;
-                                height: 4rem;
-                                background-color: $gray;
-                                padding: toRem(12);
-                                border-radius: toRem(8);
-                                img{
-                                    @extend %img-fluid
-                                }
-                            }
-                            .itemDetails {
-                                display: flex;
-                                flex-direction: column;
-                                gap: .1rem;
-                                p {
-                                    line-height: toRem(25);
-                                    font-weight: $fontBold;
-                                    &:nth-child(1){
-                                        color: $black;
-                                        font-size: toRem(15);
-                                    }
-                                    &:nth-child(2){
-                                        color: $black-light;
-                                        font-size: toRem(14);
-                                    }
-                                }
-                            }
-                        }
-                        .qtyUpdateButtons{
-                            background-color: $gray;
-                            padding: 6px 19.5px;
-                            max-width: max-content;
-                            @extend %flex-ac;
-                            gap: 1.2rem;
-    
-                            button{
-                                color: $black-lighter;
-                                font-size: toRem(16);
-                                font-weight: $fontBold;
-                                transition: all .2s ease;
-                                background-color: transparent;
-                                border: none;
-                                &:hover {
-                                    color: $primary;
-                                }
-                            }
-    
-                            span {
-                                font-weight: $fontBold;
-                                color: $black;
-                            }
-                        }
-                    }
-                }
-
-                .totalSection {
-                    @extend %flex;
-                    margin-top: 2rem;
-                    p {
-                        font-weight: $fontBold;
-                        &:nth-child(1){
-                            font-size: toRem(15);
-                            color: $black-light;
-                        }
-                        &:nth-child(2){
-                            font-size: toRem(18);
-                            color: $black;
-                        }
-                    }
-                }
-                .checkoutBtnWrapper{
-                    margin-top: 2rem;
-                    button{
-                        @extend %baseButton;
-                        width: 100%;
-                    }
-                }
+              span {
+                font-weight: $fontBold;
+                color: $black;
+              }
             }
+          }
         }
-    }
 
+        .totalSection {
+          @extend %flex;
+          margin-top: 2rem;
+          p {
+            font-weight: $fontBold;
+            &:nth-child(1) {
+              font-size: toRem(15);
+              color: $black-light;
+            }
+            &:nth-child(2) {
+              font-size: toRem(18);
+              color: $black;
+            }
+          }
+        }
+        .checkoutBtnWrapper {
+          margin-top: 2rem;
+          button {
+            @extend %baseButton;
+            width: 100%;
+          }
+        }
+      }
+
+      .emailModal {
+        .inputWrapper {
+          margin-bottom: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          input {
+            padding: 0.7rem;
+            height: 3rem;
+            border-radius: 5px;
+            border: 1px solid $black;
+            transition: border 0.3s ease;
+            &:focus {
+              border: 1.5px solid $primary;
+              outline: none;
+            }
+
+            @media (max-width: $layout-breakpoint-medium) {
+              font-size: $textSemiMedium;
+            }
+          }
+        }
+        .paystackButton {
+          @extend %baseButton;
+          width: 100%;
+        }
+      }
+    }
+  }
 }

@@ -98,11 +98,10 @@ CartStateType => {
         return previousValue + cartItem.qty
     },0)
 
-    const totalPrice: string = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(
-        state.cart.reduce((previousValue, cartItem)=>{
-            return previousValue + (cartItem.qty * cartItem.price)
-        },0)
-    )
+    const totalPrice = state.cart.reduce((previousValue, cartItem) => {
+        return previousValue + cartItem.qty * cartItem.price;
+      }, 0).toFixed(2);
+      
 
     const cart = state.cart
 
