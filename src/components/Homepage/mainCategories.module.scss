@@ -44,6 +44,16 @@
         border-radius: 10px;
         position: relative;
         min-height: toRem(210);
+        &:nth-child(3){
+            @media(max-width: toRem(765)) {
+                margin-top: 2rem;
+            }
+        }
+        &:nth-child(2){
+            @media(max-width: toRem(506)) {
+                margin-top: 2rem;
+            }
+        }
 
         span {
             position: absolute;
@@ -56,6 +66,7 @@
             text-align: center;
             font-size: toRem(15);
             font-weight: $fontBold;
+            color: $black;
         }
 
         img {

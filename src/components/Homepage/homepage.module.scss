@@ -50,7 +50,7 @@
         h1 {
             @media(max-width: $layout-breakpoint-xsmall) {
                 font-size: toRem(36);
-                min-width: max-content;
+                // min-width: max-content;
             } 
         }
 
@@ -85,7 +85,7 @@
         background-repeat: no-repeat;
         @media(max-width: $layout-breakpoint-medium) {
             background-image: url("../../assets/images/oval-tablet.webp");
-            height: 88vh;
+            height: 80vh;
             background-position: 0% -60%;
             background-size: 105%;
 
@@ -100,7 +100,7 @@
             height: 100%;
             @media(max-width: $layout-breakpoint-medium) {
                 flex-direction: column;
-                padding: 2rem 0;
+                padding: 3rem 0;
             }
             .left {
                 width: 48%;
@@ -115,6 +115,7 @@
                     margin-top: 2.2rem;
                     @media(max-width: $layout-breakpoint-medium) {
                         margin-top: 0;
+                        object-fit: cover;
                     }
                 }
             }
@@ -169,6 +170,7 @@
             h2 {
                 margin-bottom: 1rem;
                 font-size: toRem(28);
+                color: $black;
             }
 
         }
@@ -224,6 +226,7 @@
                 h2 {
                     margin-bottom: 1rem;
                     font-size: toRem(28);
+                    color: $black;
                 }
 
             }

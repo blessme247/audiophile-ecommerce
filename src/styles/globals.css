@@ -111,7 +111,7 @@ body {
 
 @media(max-width: 600px) {
   .homeHero {
-   background-image: none;
+	background-image: url("../assets/images/hero-bg-mobile.webp");
    height: 85vh;
    
   }
