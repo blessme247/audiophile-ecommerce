@@ -128,7 +128,7 @@
   left: 0;
   width: 100vw;
   height: calc(100vh - 6rem);
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 5;
   transition: all 0.2s ease;
 
