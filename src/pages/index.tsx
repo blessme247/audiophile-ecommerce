@@ -30,6 +30,7 @@ export default function Home() {
       <meta property="og:site_name" content="Audiophile" />
       <meta property="og:site" content="website" />
       <meta property="og:image" content="https://res.cloudinary.com/juwon-tech/image/upload/v1696234058/Screenshot_2023-10-02_at_09.06.55_mkc9co.png" />
+      <meta property="og:url" content="https://audiophile-ecommerce-247.vercel.app/" />
 
        {/* Twitter Card meta tags for social sharing (Twitter)  */}
        <meta name="twitter:card" content="summary_large_image" />
