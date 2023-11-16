@@ -126,7 +126,6 @@
   background-color: #0006;
   position: fixed;
   left: 0;
-  // bottom: 0;
   width: 100vw;
   height: calc(100vh - 6rem);
   overflow-y: scroll;
@@ -145,7 +144,7 @@
       width: toRem(377);
       padding: 3rem 2rem;
       position: absolute;
-      top: 2rem;
+      top: 4rem;
       right: 14%;
       transition: all 0.1s ease;
       overflow-y: auto;
