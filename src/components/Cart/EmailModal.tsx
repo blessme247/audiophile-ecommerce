@@ -16,6 +16,8 @@ const EmailModal = () => {
     const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY
     const amount = multiplyAndAppendZeros(totalPrice)
 
+    console.log(publicKey, "key")
+
     const [email, setEmail] = useState<string>("")
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
