@@ -9,6 +9,7 @@ import MobileMenu from "../Modal/Menu";
 import { useRouter } from "next/router";
 import CartModal from "../Modal/CartModal";
 import useCart from "@/helpers/Hooks/useCart";
+import Link from "next/link";
 
 interface NavbarProps {
   style?: CSSProperties;
@@ -36,6 +37,20 @@ const Navbar = ({ style }: NavbarProps) => {
     setShowModal(false)
   },[router.query])
 
+  // useEffect(() => {
+  //   const originalOverflow = document.body.style.overflow;
+  //   console.log(document.body.style, "overflow")
+
+  //   showCart || showModal ? 
+  //     document.body.style.overflow = 'hidden'
+  //     : document.body.style.overflow = originalOverflow;
+
+  //     // Cleanup function to restore scrolling when the modal is closed
+  //     return () => {
+  //       document.body.style.overflow = originalOverflow;
+  //     };
+  // }, [showModal, showCart]); 
+
  
 
   return (
@@ -48,7 +63,9 @@ const Navbar = ({ style }: NavbarProps) => {
             <span className={line}></span>
             <span className={line}></span>
           </button>
+          <Link href="/">
           <Image src={logo} alt="logo" />
+          </Link>
         </div>
         <Navlinks/>
         <div className={navRight}>

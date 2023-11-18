@@ -10,7 +10,7 @@ const SubCategory3 = () => {
 
   const router = useRouter()
 
-  const {subCategory3, left, right, productDetails, productBtn, navigateBtn} = styles
+  const {subCategory3, left, right, productDetails, navigateBtn} = styles
 
   return (
     <section className={subCategory3}>

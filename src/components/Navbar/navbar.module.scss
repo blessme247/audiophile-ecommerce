@@ -5,6 +5,7 @@
 .navbar {
   background-color: $black;
   min-height: 6rem;
+  position: relative;
 }
 
 .navWrapper {
@@ -47,6 +48,9 @@
     left: 88%;
     background-color: $primary;
     transition: all 0.2s ease;
+  }
+  svg {
+    cursor: pointer;  
   }
 }
 
@@ -96,8 +100,9 @@
   width: 100vw;
   height: calc(100vh - 6rem) !important;
   overflow-y: auto;
+  // ::-webkit-scrollbar: none;
   transition: all 0.2s ease;
-  z-index: 5;
+  z-index: 10;
 
   .menuModal {
     background-color: $white;
@@ -135,7 +140,7 @@
   // border: 1px solid red;
   .cartModal {
     cursor: pointer;
-    overflow-y: auto;
+    // overflow-y: auto;
     @extend %container;
     margin: 0 auto;
 

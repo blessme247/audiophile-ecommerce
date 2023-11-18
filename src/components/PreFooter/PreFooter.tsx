@@ -23,7 +23,7 @@ const PreFooter = () => {
             </p>
           </div>
           <div className={right}>
-            <Image src={manImage} alt="guy holding his headphones"/>
+            <Image src={manImage} alt="a guy holding his headphones"/>
           </div>
       </section>
     )
