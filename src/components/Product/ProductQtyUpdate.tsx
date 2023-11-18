@@ -1,4 +1,3 @@
-import { ReducerAction, ReducerActionType } from "@/helpers/Context/CartProvider";
 import useCart from "@/helpers/Hooks/useCart";
 import useItemQuantity from "@/helpers/Hooks/useItemQuantity";
 import styles from "@/pages/products/product.module.scss";
@@ -10,7 +9,7 @@ type ProductQtyUpdateProps = {
   isInCart?: boolean
 };
 
-const ProductQtyUpdate = ({ product, isInCart }: ProductQtyUpdateProps) => {
+const ProductQtyUpdate = ({ product }: ProductQtyUpdateProps) => {
 
     const {qtyUpdateButtons} = styles
 

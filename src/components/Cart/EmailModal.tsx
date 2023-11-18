@@ -2,7 +2,7 @@ import styles from "@/components/Navbar/navbar.module.scss";
 import useCart from "@/helpers/Hooks/useCart";
 import { multiplyAndAppendZeros } from "@/utils/multiplyAndAppendZero";
 import { useRouter } from "next/navigation";
-import {useState} from "react"
+import { useState} from "react"
 import { PaystackButton } from 'react-paystack'
 
 const EmailModal = () => {
@@ -15,8 +15,6 @@ const EmailModal = () => {
 
     const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY
     const amount = multiplyAndAppendZeros(totalPrice)
-
-    console.log(publicKey, "key")
 
     const [email, setEmail] = useState<string>("")
 
