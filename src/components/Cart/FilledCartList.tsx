@@ -60,7 +60,7 @@ const FilledCartList = ({setOpenCheckout}: FilledCart) => {
       </div>
       <div className={totalSection}>
         <p>TOTAL</p>
-        <p>{totalPrice}</p>
+        <p>$ {totalPrice}</p>
       </div>
       <div className={checkoutBtnWrapper}>
         <button onClick={()=>setOpenCheckout(true)}>Checkout</button>
