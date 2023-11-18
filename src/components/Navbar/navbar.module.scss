@@ -4,7 +4,7 @@
 
 .navbar {
   background-color: $black;
-  height: 6rem;
+  min-height: 6rem;
 }
 
 .navWrapper {
@@ -12,6 +12,7 @@
   margin: 0 auto;
   @extend %flex;
   height: 100%;
+  padding: 35px 0;
   border-bottom: 1px solid #ffffff33;
 
   .navLeft {
