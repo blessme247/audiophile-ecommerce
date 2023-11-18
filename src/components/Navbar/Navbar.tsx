@@ -93,7 +93,7 @@ const Navbar = ({ style }: NavbarProps) => {
 
       </div>
     </nav>
-    <MobileMenu style={{bottom: showModal ? 0 : "-100%"}}/>
+    <MobileMenu style={{top: showModal ? "6rem" : "-100%"}}/>
     <CartModal style={{top: showCart ? "6rem" : "-100%"}} />
     </>
   );
