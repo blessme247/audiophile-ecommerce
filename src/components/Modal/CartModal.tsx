@@ -16,8 +16,8 @@ const CartModal = ({ style }: CartStyleProp) => {
   const {cartWrapper, cartModal, cartContainer} = styles;
 
   return (
-    <div className={cartWrapper} style={style}>
-      <div className={cartModal}>
+    <div className={cartWrapper} style={style}  >
+      <div className={cartModal} >
         <div className={cartContainer}>
           {cart.length == 0 ? (
             <EmptyCart />

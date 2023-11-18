@@ -52,6 +52,15 @@
   svg {
     cursor: pointer;  
   }
+
+  .mobileLogoWrapper {
+    @media(max-width: $layout-breakpoint-medium){
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%)
+    }
+  }
 }
 
 .navLinks {
@@ -137,13 +146,12 @@
   overflow-y: auto;
   z-index: 5;
   transition: all 0.2s ease;
-  // border: 1px solid red;
   .cartModal {
     cursor: pointer;
     // overflow-y: auto;
     @extend %container;
     margin: 0 auto;
-
+    height: 100%;
     .cartContainer {
       border-radius: 8px;
       background-color: $white;
