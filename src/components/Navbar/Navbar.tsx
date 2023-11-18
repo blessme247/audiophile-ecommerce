@@ -64,9 +64,6 @@ const Navbar = ({ style }: NavbarProps) => {
             <span className={line}></span>
             <span className={line}></span>
           </button>
-          {/* <Link href="/">
-          <Image src={logo} alt="logo" />
-          </Link> */}
           <div className={mobileLogoWrapper}>
         <Link href="/">
           <Image src={logo} alt="logo" />
@@ -97,7 +94,7 @@ const Navbar = ({ style }: NavbarProps) => {
       </div>
     </nav>
     <MobileMenu style={{bottom: showModal ? 0 : "-100%"}}/>
-    <CartModal style={{bottom: showCart ? 0 : "-100%"}} />
+    <CartModal style={{top: showCart ? "6rem" : "-100%"}} />
     </>
   );
 };

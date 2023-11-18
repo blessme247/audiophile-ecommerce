@@ -5,7 +5,6 @@
 .navbar {
   background-color: $black;
   min-height: 6rem;
-  position: relative;
 }
 
 .navWrapper {
@@ -102,14 +101,12 @@
 
 // Menu modal
 .modalWrapper {
-  // border: 1px solid red;
   background-color: #0006;
   position: fixed;
   left: 0;
   width: 100vw;
   height: calc(100vh - 6rem) !important;
   overflow-y: auto;
-  // ::-webkit-scrollbar: none;
   transition: all 0.2s ease;
   z-index: 10;
 
@@ -140,6 +137,7 @@
 .cartWrapper {
   background-color: #0006;
   position: fixed;
+  top: 6rem;
   left: 0;
   width: 100vw;
   height: calc(100vh - 6rem) !important;
