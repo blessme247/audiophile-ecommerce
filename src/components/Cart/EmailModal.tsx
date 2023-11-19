@@ -13,7 +13,11 @@ const EmailModal = () => {
 
     const { totalPrice, dispatch, REDUCER_ACTIONS } = useCart();
 
-    const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY
+    const isProduction = process.env.NODE_ENV === 'production'
+    const publicKey = isProduction
+        ? process.env.NEXT_PUBLIC_PAYSTACK_KEY : process.env.NEXT_PUBLIC_PAYSTACK_KEY
+
+    // const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_KEY
     const amount = multiplyAndAppendZeros(totalPrice)
 
     const [email, setEmail] = useState<string>("")
