@@ -27,6 +27,9 @@ const ProductQtyUpdate = ({ product }: ProductQtyUpdateProps) => {
     }
 
     const decreaseItemQty = () => {
+      if (itemQuantity < 1) {
+        setItemQuantity(1)
+      }
       setItemQuantity((prevValue)=> prevValue - 1)
     };
 
