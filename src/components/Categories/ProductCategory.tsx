@@ -36,7 +36,7 @@ const ProductCategory = ({ product }: { product: Product }) => {
         />
       </div>
       <div className={productDetailsContainer}>
-        {product.new == true && <p className={productHeading}>NEW PRODUCT</p>}
+        {product.new && <p className={productHeading}>NEW PRODUCT</p>}
         
         <h2>{product.name}</h2>
         <p className={productBrief}>{product.description}</p>
