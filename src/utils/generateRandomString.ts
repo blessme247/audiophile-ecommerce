@@ -13,7 +13,7 @@ function generateRandomString(length: number) {
 
 const generatedStringsSet: Set<string>  = new Set();
 
-function generateUniqueRandomString(length: number) {
+export const generateUniqueRandomString =(length: number)=> {
   let randomString: string;
 
   // Generate unique random string
