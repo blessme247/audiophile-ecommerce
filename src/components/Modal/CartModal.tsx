@@ -11,7 +11,7 @@ interface CartStyleProp {
 
 const CartModal = ({ style }: CartStyleProp) => {
   const { cart } = useCart();
-  const [openCheckout, setOpenCheckout] = useState<Boolean>(false)
+  const [openCheckout, setOpenCheckout] = useState<boolean>(false)
 
   const {cartWrapper, cartModal, cartContainer} = styles;
 
