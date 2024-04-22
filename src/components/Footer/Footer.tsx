@@ -40,9 +40,10 @@ const Footer = () => {
 
           <div className={navLinks}>
             {linksData.map((link, index) => {
+            const key = generateUniqueRandomString();
               return (
-                <div className={navLinkWrapper} key={index}>
-                  <Link href={link.url} className={navLink} key={index}>
+                <div className={navLinkWrapper} key={key}>
+                  <Link href={link.url} className={navLink} >
                     {link.text}
                   </Link>
                   <span className={linkUnderline}></span>
