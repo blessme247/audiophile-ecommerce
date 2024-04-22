@@ -4,7 +4,7 @@ import { CartItemType } from "@/types/cart";
 import { Dispatch, SetStateAction } from "react";
 
 interface FilledCart {
-  setOpenCheckout: Dispatch<SetStateAction<Boolean>>
+  setOpenCheckout: Dispatch<SetStateAction<boolean>>
 }
 
 const FilledCartList = ({setOpenCheckout}: FilledCart) => {
