@@ -5,5 +5,3 @@ export const multiplyAndAppendZeros = (value: string) => {
     return result; // Ensure two decimal places
   };
   
-//   const amount = 2396.00;
-//   const result = multiplyAndAppendZeros(amount);
