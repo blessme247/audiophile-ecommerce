@@ -2,7 +2,7 @@ import styles from "@/components/Footer/footer.module.scss";
 import Image from "next/image";
 import logo from "@/assets/images/logo.svg";
 import Link from "next/link";
-import generateUniqueRandomString from "@/src/utils/generateRandomString"
+import generateUniqueRandomString from "@/utils/generateRandomString"
 
 const Footer = () => {
   const linksData = [
