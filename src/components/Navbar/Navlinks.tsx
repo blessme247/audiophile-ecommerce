@@ -1,4 +1,5 @@
 import styles from "@/components/Navbar/navbar.module.scss";
+import { generateUniqueRandomString } from "@/utils/generateRandomString";
 import Link from "next/link";
 
 const Navlinks = () => {
@@ -13,10 +14,10 @@ const Navlinks = () => {
     const {navLinks, navLinkWrapper, navLink, linkUnderline} = styles;
   return (
     <div className={navLinks}>
-          {linksData.map((link, index) => {
+          {linksData.map((link) => {
             return (
-              <div className={navLinkWrapper} key={index}>
-                <Link href={link.url} className={navLink} key={index}>
+              <div className={navLinkWrapper} key={generateUniqueRandomString(8)}>
+                <Link href={link.url} className={navLink} >
                   {link.text}
                 </Link>
                 <span className={linkUnderline}></span>

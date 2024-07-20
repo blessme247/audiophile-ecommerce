@@ -1,18 +1,15 @@
 import Footer from './Footer/Footer'
 import Navbar from './Navbar/Navbar'
-import { ReactElement } from 'react'
+import { Fragment, ReactElement } from 'react'
 
 type ChildrenType = {children?: ReactElement }
 
-export default function Layout({ children }: ChildrenType) {
+export default function Layout({ children }: Readonly<ChildrenType>) {
   return (
-    <html lang="en">
- 
-      <body >
+    <Fragment>
       <Navbar style={{position: "fixed", top: 0, width: "100%", zIndex: 5}}/>
         {children}
       <Footer/>
-        </body>
-    </html>
+      </Fragment>
   )
 }

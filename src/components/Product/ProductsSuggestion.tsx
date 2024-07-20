@@ -1,5 +1,6 @@
 import styles from "@/pages/products/product.module.scss";
 import { Product } from "@/types/product";
+import { generateUniqueRandomString } from "@/utils/generateRandomString";
 import Link from "next/link";
 
 const ProductsSuggestions = ({product}:{ product: Product }) => {
@@ -11,9 +12,9 @@ const ProductsSuggestions = ({product}:{ product: Product }) => {
         <h3>YOU MAY ALSO LIKE</h3>
 
         <div className={products}>
-        {product.others.map((item, i)=>{
+        {product.others.map((item)=>{
             return (
-               <div key={i} className={suggestion}>
+               <div key={generateUniqueRandomString(10)} className={suggestion}>
                 <div className={imageWrapper}>
                 <img src={item.image.desktop} alt={item.slug} className={desktopImage} />
                 <img src={item.image.mobile} alt={item.slug} className={mobileImage} />

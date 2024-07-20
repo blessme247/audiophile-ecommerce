@@ -1,5 +1,5 @@
 
-import React, { Dispatch, ReactElement, SetStateAction, createContext, useState } from 'react'
+import React, { Dispatch, ReactElement, SetStateAction, createContext, useMemo, useState } from 'react'
 
 export interface ItemQuantityType {
     itemQuantity: number
@@ -16,10 +16,13 @@ type ChildrenType = {children?: ReactElement | ReactElement[]}
 export const ItemQuantityProvider = ({children}: ChildrenType): ReactElement =>{
 
     const [itemQuantity, setItemQuantity] = useState(1)
+
+    const value = useMemo(() => ({
+        itemQuantity,
+        setItemQuantity,
+      }), [itemQuantity, setItemQuantity]);
     return (
-        <ItemQuantityContext.Provider value={{
-            itemQuantity, setItemQuantity
-        }}>
+        <ItemQuantityContext.Provider value={value}>
             {children}
         </ItemQuantityContext.Provider>
     )

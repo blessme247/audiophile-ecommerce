@@ -8,7 +8,7 @@ import ProductCategory from "@/components/Categories/ProductCategory";
 import MainCategories from "@/components/Homepage/MainCategories";
 import PreFooter from "@/components/PreFooter/PreFooter";
 import PageHeader from "@/components/Categories/PageHeader";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -44,7 +44,7 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
   const {main, categoriesPage, components} = styles
 
   const router = useRouter()
-  const pathSlug = router.query.slug?.toString().toUpperCase()
+  const pathSlug = router.query.slug?.toString().toUpperCase() || ''
 
   useEffect(() => {
     router.prefetch('/products/xx99-mark-two-headphones')
@@ -53,12 +53,13 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
 
 
   return (
-    <Layout>
-      <>
+    <Fragment>
+      
       <Head> 
       <title >Audiophile | {pathSlug}</title>
       <meta name="description" content={`Shop from our varieties of ${pathSlug} category`} />
     </Head>
+    <Layout>
        <main className={main}>
         <section className={categoriesPage}>
         <PageHeader />
@@ -73,8 +74,9 @@ const Category = ({productsBelongingToCategory}:{ productsBelongingToCategory: P
         </div>
         </section>
        </main> 
-       </>
+       
     </Layout>
+    </Fragment>
   )
 }
 

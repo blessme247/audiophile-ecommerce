@@ -11,22 +11,24 @@ interface CartStyleProp {
 
 const CartModal = ({ style }: CartStyleProp) => {
   const { cart } = useCart();
-  const [openCheckout, setOpenCheckout] = useState<boolean>(false)
+  const [openCheckout, setOpenCheckout] = useState<boolean>(false);
 
-  const {cartWrapper, cartModal, cartContainer} = styles;
+  const { cartWrapper, cartModal, cartContainer } = styles;
+
+  const renderCartContent = () => {
+    if (cart.length === 0) {
+      return <EmptyCart />;
+    } else if (cart.length >= 1 && !openCheckout) {
+      return <FilledCartList setOpenCheckout={setOpenCheckout} />;
+    } else {
+      return <EmailModal />;
+    }
+  };
 
   return (
-    <div className={cartWrapper} style={style}  >
-      <div className={cartModal} >
-        <div className={cartContainer}>
-          {cart.length == 0 ? (
-            <EmptyCart />
-          ) : (cart.length >= 1 && !openCheckout ) ?  (
-            <FilledCartList setOpenCheckout={setOpenCheckout} />
-          ) : <EmailModal />
-        }
-          
-        </div>
+    <div className={cartWrapper} style={style}>
+      <div className={cartModal}>
+        <div className={cartContainer}>{renderCartContent()}</div>
       </div>
     </div>
   );

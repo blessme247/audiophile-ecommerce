@@ -13,7 +13,7 @@ import ProductsSuggestions from "@/components/Product/ProductsSuggestion";
 import MainCategories from "@/components/Homepage/MainCategories";
 import Head from "next/head";
 import useItemQuantity from "@/helpers/Hooks/useItemQuantity";
-import { useEffect } from "react"
+import { Fragment, useEffect } from "react"
 
 export const getStaticPaths = async ()=>{
   
@@ -43,10 +43,12 @@ export const getStaticProps = async (context:any)=>{
 
 const Product = ({product}:{ product: Product }) => {
 
-  const {itemQuantity, setItemQuantity} = useItemQuantity()
-  product.qty = itemQuantity
-
   const {main, productWrapper, backButton} = styles
+
+  const {itemQuantity, setItemQuantity} = useItemQuantity()
+
+  const productWithQty = { ...product, qty: itemQuantity }
+
 
   const router = useRouter()
   const pathSlug = router.query.slug?.toString()
@@ -60,27 +62,30 @@ const Product = ({product}:{ product: Product }) => {
   },[pathSlug])
 
   return (
-    <Layout>
-      <>
-      <Head> 
-      <title >Audiophile | {product.name}</title>
+    <Fragment>
+       <Head> 
+      <title >Audiophile | {product.name || ''}</title>
       <meta name="description" content={`Audiophile | ${product.description}`} />
       <meta property="og:title" content={`Audiophile | ${product.name}`} />
       <meta property="og:description" content={`Audiophile | ${product.description}`} />
     </Head>
+    <Layout>
+    
+     
       <main className={main}>
       <div className={productWrapper}>
       <button onClick={handleGoBack} className={backButton}>Go back</button>
-      <ProductDetails product={product}/>
-      <ProductFeatures product={product}/>
-      <ProductGallery product={product}/>
-      <ProductsSuggestions product={product}/>
+      <ProductDetails product={productWithQty}/>
+      <ProductFeatures product={productWithQty}/>
+      <ProductGallery product={productWithQty}/>
+      <ProductsSuggestions product={productWithQty}/>
       <MainCategories />
       <PreFooter/>
       </div>
       </main>
-      </>
+      
     </Layout>
+    </Fragment>
   )
 }
 

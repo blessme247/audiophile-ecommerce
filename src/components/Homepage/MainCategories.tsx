@@ -6,6 +6,7 @@ import Speakers from "@/assets/images/speakers.webp";
 import styles from "@/components/Homepage/mainCategories.module.scss";
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
+import { generateUniqueRandomString } from "@/utils/generateRandomString";
 
 interface Category {
   title: string;
@@ -33,21 +34,29 @@ const MainCategories = () => {
     linkWrapper,
   } = styles;
 
+  const getDynamicClassName = (index: number)=> {
+    switch (index){
+      case 0:
+        return productImage1;
+      case 1:
+        return productImage2;
+      case 2:
+        return productImage3;
+      default: 
+        return ''
+    }
+    
+  }
+
   return (
     <div className={productCategories}>
       {mainCategoriesData.map((category, index) => {
         return (
-          <div key={index} className={productCategory} >
+          <div key={generateUniqueRandomString(8)} className={productCategory} >
             <Image
               src={category.src}
               alt="product image"
-              className={
-                index == 0
-                  ? productImage1
-                  : index == 1
-                  ? productImage2
-                  : productImage3
-              }
+              className={getDynamicClassName(index)}
             />
             <span>
               <svg

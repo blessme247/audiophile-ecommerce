@@ -277,7 +277,7 @@
             .products {
                 margin-top: 2rem;
                 display: grid;
-                grid-template-columns:  repeat(auto-fit,minmax(toRem(223),1fr));;
+                grid-template-columns:  repeat(auto-fit,minmax(toRem(223),1fr));
                 gap: toRem(30);
 
                 .suggestion {

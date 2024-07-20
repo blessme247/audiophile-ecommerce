@@ -1,6 +1,7 @@
 import { Product } from "@/types/product"
 import styles from "@/pages/products/product.module.scss";
 import { splitText } from "@/utils/splitText";
+import { generateUniqueRandomString } from "@/utils/generateRandomString";
 
 
 const ProductFeatures = ({product}:{ product: Product }) => {
@@ -21,9 +22,9 @@ const ProductFeatures = ({product}:{ product: Product }) => {
         <div className={right}>
             <h3>IN THE BOX</h3>
             <ul className={featuresList}>
-                {product.includes.map((item, i)=>{
+                {product.includes.map((item)=>{
                     return (
-                        <li key={i}>
+                        <li key={generateUniqueRandomString(10)}>
                         <span>{item.quantity}X</span>
                         <span>{item.item}</span>
                         </li> 

@@ -31,8 +31,6 @@ CartStateType => {
 
             const filteredCart: CartItemType[] = state.cart.filter(item => item.slug !== slug)
 
-            // const itemExists: CartItemType | undefined = state.cart.find(item => item.slug === slug)
-
             return { ...state, cart: [...filteredCart, { ...action.payload }] }
         }
         case REDUCER_ACTION_TYPE.INCREASE: {
@@ -52,6 +50,8 @@ CartStateType => {
         
                 return { ...state, cart: [...filteredCart, updatedItem] };
             }
+
+            return state;
 
         }
         case REDUCER_ACTION_TYPE.DECREASE: {
@@ -77,6 +77,8 @@ CartStateType => {
                 return { ...state, cart: [...filteredCart, updatedItem] };
             }
 
+            return state;
+
         } 
         case REDUCER_ACTION_TYPE.removeAll: {
             return {...state, cart:[]}
@@ -93,7 +95,6 @@ CartStateType => {
         return REDUCER_ACTION_TYPE
     },[])
 
-    // totalItems represent the total quantity of each product ordered, where 0 is the default 
     const totalItems: number = state.cart.reduce((previousValue, cartItem)=>{
         return previousValue + cartItem.qty
     },0)

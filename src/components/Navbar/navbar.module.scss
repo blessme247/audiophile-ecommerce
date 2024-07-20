@@ -142,10 +142,9 @@
   height: calc(100vh - 6rem) !important;
   overflow-y: auto;
   z-index: 5;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease-in-out;
   .cartModal {
     cursor: pointer;
-    // overflow-y: auto;
     @extend %container;
     margin: 0 auto;
     height: 100%;
@@ -157,7 +156,7 @@
       position: absolute;
       top: 4rem;
       right: 14%;
-      transition: all 0.1s ease;
+      transition: all 0.2s ease;
       overflow-y: auto;
 
       @media (max-width: $layout-breakpoint-semiMedium) {
